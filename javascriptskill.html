@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Complete Guide</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c') no-repeat center center/cover;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.75);
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      font-size: 2.3rem;
+      font-weight: bold;
+      animation: slideDown 1.5s ease-in-out;
+      color: #ffcc00;
+      letter-spacing: 2px;
+    }
+
+    section {
+      background: rgba(0,0,0,0.65);
+      padding: 30px;
+      margin: 20px;
+      width: 85%;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      animation: zoomIn 1.5s ease-in-out;
+    }
+
+    h2 {
+      color: #ffcc00;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin-left: 25px;
+    }
+
+    pre {
+      background: black;
+      padding: 15px;
+      border-radius: 10px;
+      color: #39ff14;
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    .demo {
+      margin-top: 15px;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      width: 100px;
+      margin: 5px;
+      border-radius: 5px;
+      border: none;
+      text-align: center;
+    }
+
+    select {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-weight: bold;
+      margin: 5px;
+      background-color: #ffcc00;
+      color: black;
+      cursor: pointer;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #ffcc00;
+      border: none;
+      color: black;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    button:hover {
+      background: #ffaa00;
+      transform: scale(1.1);
+    }
+
+    #result {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: color 0.6s ease-in-out;
+    }
+
+    a.back-btn {
+      display: inline-block;
+      margin: 30px;
+      padding: 12px 25px;
+      background: #ffcc00;
+      color: black;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    a.back-btn:hover {
+      background: #ffaa00;
+      transform: scale(1.1);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>💡 JavaScript Complete Guide</header>
+
+  <section>
+    <h2>🔹 What is JavaScript?</h2>
+    <p>
+      JavaScript (JS) is a lightweight, interpreted programming language used to make web pages interactive.  
+      It was created by <strong>Brendan Eich</strong> in 1995 and is now a core web technology alongside HTML and CSS.
+    </p>
+  </section>
+
+  <section>
+    <h2>🔹 Variables and Data Types</h2>
+    <p>JavaScript supports <b>var</b>, <b>let</b>, and <b>const</b> for variable declarations.</p>
+    <pre>
+// Example:
+let name = "Harsh";
+const age = 21;
+var city = "Delhi";
+console.log(name, age, city);
+    </pre>
+  </section>
+
+  <section>
+    <h2>🔹 Operators and Conditional Statements</h2>
+    <pre>
+let num = 10;
+if (num % 2 === 0) {
+  console.log("Even Number");
+} else {
+  console.log("Odd Number");
+}
+    </pre>
+  </section>
+
+  <section>
+    <h2>🔹 Loops and Arrays</h2>
+    <pre>
+// Example of array and loop
+let fruits = ["Apple", "Banana", "Cherry"];
+for (let fruit of fruits) {
+  console.log(fruit);
+}
+    </pre>
+  </section>
+
+  <section>
+    <h2>🔹 Functions</h2>
+    <p>Functions allow code reuse. You can declare or use arrow functions.</p>
+    <pre>
+// Normal Function
+function greet(name) {
+  return "Hello " + name;
+}
+
+// Arrow Function
+const square = (n) => n * n;
+
+console.log(greet("Harsh"));
+console.log(square(5));
+    </pre>
+  </section>
+
+  <section>
+    <h2>🔹 Objects and Classes (ES6)</h2>
+    <pre>
+// Object Example
+let person = {
+  name: "Riya",
+  age: 22,
+  greet() {
+    console.log("Hello, " + this.name);
+  }
+};
+person.greet();
+
+// Class Example
+class Car {
+  constructor(brand, model) {
+    this.brand = brand;
+    this.model = model;
+  }
+  show() {
+    console.log(`Car: ${this.brand} ${this.model}`);
+  }
+}
+
+let c1 = new Car("BMW", "X5");
+c1.show();
+    </pre>
+  </section>
+
+  <section>
+    <h2>🔹 DOM Manipulation</h2>
+    <p>DOM (Document Object Model) allows JavaScript to access and modify HTML content dynamically.</p>
+    <pre>
+// Example: Changing HTML element text
+document.getElementById("demo").innerHTML = "Text Changed!";
+    </pre>
+  </section>
+
+  <section>
+    <h2>🔹 Events in JavaScript</h2>
+    <p>Events are actions that happen in the browser, like clicks or key presses.</p>
+    <pre>
+// Example
+function showAlert() {
+  alert("Button Clicked!");
+}
+    </pre>
+  </section>
+
+  <section>
+    <h2>🔹 ES6 Features Overview</h2>
+    <ul>
+      <li>let & const (Block Scoping)</li>
+      <li>Arrow Functions</li>
+      <li>Template Literals</li>
+      <li>Classes</li>
+      <li>Modules</li>
+    </ul>
+    <pre>
+// Example of Template Literal
+let user = "Harsh";
+console.log(`Welcome, ${user}!`);
+    </pre>
+  </section>
+
+  <!-- MULTI-OPERATION CALCULATOR -->
+  <section class="demo">
+    <h2>⚙️ JavaScript Calculator</h2>
+    <p>Enter two numbers and choose an operation:</p>
+    <input type="number" id="num1" placeholder="First">
+    <select id="operator">
+      <option value="add">➕ Add</option>
+      <option value="subtract">➖ Subtract</option>
+      <option value="multiply">✖ Multiply</option>
+      <option value="divide">➗ Divide</option>
+    </select>
+    <input type="number" id="num2" placeholder="Second"><br>
+    <button onclick="calculate()">Calculate</button>
+    <div id="result"></div>
+  </section>
+
+  <a href="Portfolio.html" class="back-btn">⬅ Back to Portfolio</a>
+
+  <script>
+    function calculate() {
+      let n1 = parseFloat(document.getElementById('num1').value);
+      let n2 = parseFloat(document.getElementById('num2').value);
+      let op = document.getElementById('operator').value;
+      let res, color;
+
+      if (isNaN(n1) || isNaN(n2)) {
+        document.getElementById('result').innerText = "⚠ Please enter valid numbers!";
+        return;
+      }
+
+      switch (op) {
+        case "add": res = n1 + n2; color = "#00ffcc"; break;
+        case "subtract": res = n1 - n2; color = "#ffcc00"; break;
+        case "multiply": res = n1 * n2; color = "#39ff14"; break;
+        case "divide":
+          if (n2 === 0) {
+            document.getElementById('result').innerText = "❌ Cannot divide by zero!";
+            return;
+          }
+          res = n1 / n2; color = "#ff33aa"; break;
+      }
+
+      const result = document.getElementById('result');
+      result.innerText = `✅ Result: ${res}`;
+      result.style.color = color;
+    }
+  </script>
+</body>
+</html>

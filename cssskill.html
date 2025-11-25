@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Tutorial</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      width: 100%;
+      text-align: center;
+      padding: 25px;
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #00ffcc;
+      animation: slideDown 1.5s ease-in-out;
+    }
+
+    section {
+      background: rgba(0, 0, 0, 0.65);
+      padding: 30px;
+      margin: 25px;
+      width: 85%;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      animation: zoomIn 1.5s ease-in-out;
+    }
+
+    h2 {
+      color: #00ffcc;
+      margin-bottom: 10px;
+    }
+
+    p, li {
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    ul {
+      margin-left: 25px;
+    }
+
+    pre {
+      background: #111;
+      color: #00ffcc;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    .highlight {
+      color: #ffd43b;
+      font-weight: bold;
+    }
+
+    a.back-btn {
+      display: inline-block;
+      margin: 30px;
+      padding: 12px 25px;
+      background: #00ffcc;
+      color: black;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    a.back-btn:hover {
+      background: #00ccaa;
+      transform: scale(1.1);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>CSS Tutorial</header>
+
+  <section>
+    <h2>What is CSS?</h2>
+    <p>
+      CSS (Cascading Style Sheets) is a stylesheet language used to style HTML elements on web pages.
+      It controls the layout, colors, fonts, and overall visual appearance of a website.
+    </p>
+  </section>
+
+  <section>
+    <h2>Why Use CSS?</h2>
+    <ul>
+      <li>Separates content (HTML) from design (CSS).</li>
+      <li>Improves consistency across web pages.</li>
+      <li>Makes websites more responsive and visually appealing.</li>
+      <li>Reduces code repetition by using external stylesheets.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Types of CSS</h2>
+    <p>There are three main types of CSS:</p>
+    <ul>
+      <li><span class="highlight">1️⃣ Inline CSS</span></li>
+      <li><span class="highlight">2️⃣ Internal CSS</span></li>
+      <li><span class="highlight">3️⃣ External CSS</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>1️⃣ Inline CSS</h2>
+    <p>Inline CSS is written directly inside the HTML tag using the <code>style</code> attribute. It is used for quick styling of individual elements.</p>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1 style="color:blue; text-align:center;"&gt;
+  Hello Inline CSS!
+&lt;/h1&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+    <p><b>Use Case:</b> Best for quick testing or when applying a one-time style to an element.</p>
+  </section>
+
+  <section>
+    <h2>2️⃣ Internal CSS</h2>
+    <p>Internal CSS is placed inside the <code>&lt;style&gt;</code> tag within the <code>&lt;head&gt;</code> section of an HTML document.</p>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  body {
+    background-color: black;
+    color: white;
+  }
+  h1 {
+    color: cyan;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Welcome to Internal CSS&lt;/h1&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+    <p><b>Use Case:</b> Ideal when you want to style a single page with unique formatting.</p>
+  </section>
+
+  <section>
+    <h2>3️⃣ External CSS</h2>
+    <p>External CSS is stored in a separate file with the <code>.css</code> extension. It is linked to the HTML file using the <code>&lt;link&gt;</code> tag.</p>
+    <pre>
+/* style.css file */
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+h1 {
+  color: lime;
+  text-align: center;
+}
+    </pre>
+    <p><b>HTML Link Example:</b></p>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Welcome to External CSS&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+    <p><b>Use Case:</b> Best for websites with multiple pages sharing the same styles.</p>
+  </section>
+
+  <section>
+    <h2>CSS Syntax</h2>
+    <p>The basic syntax of CSS consists of a selector and a declaration block.</p>
+    <pre>
+selector {
+  property: value;
+}
+    </pre>
+    <p><b>Example:</b></p>
+    <pre>
+h1 {
+  color: red;
+  font-size: 30px;
+}
+    </pre>
+  </section>
+
+  <section>
+    <h2>Example with All Types Combined</h2>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+    p { color: green; } /* Internal CSS */
+  &lt;/style&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt; <!-- External CSS -->
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;h1 style="color: blue;"&gt;Inline CSS Example&lt;/h1&gt;
+  &lt;p&gt;This is styled using internal CSS.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+  </section>
+
+  <a href="Portfolio.html" class="back-btn">⬅ Back to Portfolio</a>
+</body>
+</html>

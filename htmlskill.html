@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML Skills — Complete Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
+    :root{
+      --accent:#ff9800;
+      --glass:rgba(0,0,0,0.65);
+      --glass-2:rgba(255,255,255,0.05);
+      --code-bg:#0b1220;
+    }
+    body{
+      min-height:100vh;
+      color:#fff;
+      background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      display:flex;flex-direction:column;align-items:center;padding:30px 20px;
+      animation:fadeIn 900ms ease-in-out;
+    }
+    header{
+      width:100%;max-width:1100px;background:var(--glass);padding:22px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6);text-align:center;margin-bottom:20px;
+      backdrop-filter:blur(6px);
+      animation:slideDown 800ms ease;
+    }
+    header h1{font-size:1.9rem;color:var(--accent);letter-spacing:0.5px}
+    header p{opacity:0.9;margin-top:6px}
+
+    main{width:100%;max-width:1100px}
+    .section{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:22px;margin:18px 0;box-shadow:0 6px 20px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.03);overflow:hidden}
+    .section.animate{animation:zoomIn 700ms cubic-bezier(.2,.9,.2,1)}
+    .section h2{color:var(--accent);margin-bottom:10px;font-size:1.4rem}
+    .lead{color:#e6e6e6;opacity:0.95;margin-bottom:12px}
+
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .full{grid-column:1/-1}
+
+    /* Code block */
+    pre.code{background:var(--code-bg);padding:16px;border-radius:10px;color:#d1f7e5;overflow:auto;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono',monospace;font-size:13px}
+    code.tag{color:#7bd389}
+    code.attr{color:#ffd27a}
+    code.str{color:#98d3ff}
+
+    /* Table example styling */
+    .demo-table{width:100%;border-collapse:collapse;background:var(--glass-2);}
+    .demo-table th,.demo-table td{padding:10px;border:1px solid rgba(255,255,255,0.06);text-align:left}
+    .demo-table th{background:rgba(0,0,0,0.3)}
+
+    /* Form preview */
+    .form-card{background:rgba(255,255,255,0.02);padding:14px;border-radius:10px}
+    .form-row{display:flex;gap:10px;margin-bottom:10px}
+    .form-row input[type=text],.form-row input[type=email],textarea,select{flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff}
+    label{display:block;font-size:13px;margin-bottom:6px;color:#dcdcdc}
+    input[type=checkbox],input[type=radio]{transform:scale(1.1);margin-right:8px}
+
+    /* Buttons */
+    .btn{display:inline-block;padding:9px 14px;border-radius:9px;background:var(--accent);color:#0b0b0b;font-weight:600;text-decoration:none;border:none;cursor:pointer}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#fff}
+
+    /* Navigation */
+    nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+    nav a{padding:8px 12px;border-radius:8px;text-decoration:none;background:rgba(0,0,0,0.35);color:#fff}
+
+    /* Responsive */
+    @media (max-width:900px){.grid{grid-template-columns:1fr}.lead{font-size:14px}}
+
+    /* Animations */
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes slideDown{from{transform:translateY(-16px);opacity:0}to{transform:none;opacity:1}}
+    @keyframes zoomIn{from{transform:scale(.98);opacity:0}to{transform:scale(1);opacity:1}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HTML Skills — Complete Guide</h1>
+    <p class="lead">Concise explanations, live examples and code snippets — all on a single page with nice animations.</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#history">History</a>
+      <a href="#tags">Tags & Formats</a>
+      <a href="#tables">Tables</a>
+      <a href="#forms">Forms</a>
+      <a href="#examples">Examples</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- About -->
+    <section id="about" class="section animate">
+      <h2>About HTML</h2>
+      <p class="lead">HTML (HyperText Markup Language) is the standard markup language used to create and structure content on the web. It uses tags to describe elements such as headings, paragraphs, links, images and more. HTML defines the skeleton of a webpage — CSS styles it and JavaScript makes it interactive.</p>
+
+      <div class="grid">
+        <div>
+          <h3>Core Concepts</h3>
+          <ul style="margin-left:16px;margin-top:8px;color:#e9e9e9;line-height:1.6;">
+            <li>Elements and Tags: &lt;tag&gt;content&lt;/tag&gt;</li>
+            <li>Attributes: provide extra information — e.g., <code class="tag">src</code>, <code class="tag">alt</code>, <code class="tag">href</code></li>
+            <li>Document tree: DOM (Document Object Model)</li>
+            <li>Semantic HTML: use meaningful tags like &lt;header&gt;, &lt;nav&gt;, &lt;article&gt;</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Basic Page Example</h3>
+          <pre class="code">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;title&gt;Simple Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello HTML&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- History -->
+    <section id="history" class="section animate">
+      <h2>History of HTML</h2>
+      <p class="lead">HTML was created by Tim Berners-Lee in 1991 to share scientific documents. Over time, HTML developed through multiple versions (HTML 2.0, 3.2, 4.01) and XHTML. HTML5 (released as a W3C Recommendation in 2014) modernized the language with new semantic elements, multimedia support and APIs.</p>
+
+      <table class="demo-table" style="margin-top:10px;">
+        <thead>
+          <tr><th>Year</th><th>Milestone</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1991</td><td>Original HTML proposal by Tim Berners-Lee</td></tr>
+          <tr><td>1995–1997</td><td>HTML 2.0 and 3.2 — early standards</td></tr>
+          <tr><td>1999</td><td>HTML 4.01 — focus on separation of concerns</td></tr>
+          <tr><td>2008–2014</td><td>HTML5 development and recommendation</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Tags & Formats -->
+    <section id="tags" class="section animate">
+      <h2>Common HTML Tags & Their Formats</h2>
+      <p class="lead">Below are frequently used tags with short descriptions and code examples.</p>
+
+      <div class="grid">
+        <div>
+          <h3>Structure & Text</h3>
+          <ul style="margin-left:16px;margin-top:8px;color:#e9e9e9;line-height:1.6;">
+            <li><strong>&lt;!DOCTYPE html&gt;</strong> — declares HTML5 document type.</li>
+            <li><strong>&lt;html&gt;</strong> — root element.</li>
+            <li><strong>&lt;head&gt;</strong> — meta information (title, links).</li>
+            <li><strong>&lt;body&gt;</strong> — page content.</li>
+            <li><strong>&lt;h1&gt;…&lt;h6&gt;</strong> — headings (h1 is largest).</li>
+            <li><strong>&lt;p&gt;</strong> — paragraph.</li>
+            <li><strong>&lt;a href="url"&gt;</strong> — anchor/link.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Media & Layout</h3>
+          <ul style="margin-left:16px;margin-top:8px;color:#e9e9e9;line-height:1.6;">
+            <li><strong>&lt;img src="..." alt="..."&gt;</strong> — image (self-closing in HTML5).</li>
+            <li><strong>&lt;video&gt;</strong> — video; supports &lt;source&gt;.</li>
+            <li><strong>&lt;section&gt;, &lt;article&gt;, &lt;aside&gt;</strong> — semantic blocks.</li>
+            <li><strong>&lt;div&gt;</strong> — generic container.</li>
+            <li><strong>&lt;nav&gt;</strong> — navigation links.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Lists & Inline</h3>
+          <ul style="margin-left:16px;margin-top:8px;color:#e9e9e9;line-height:1.6;">
+            <li><strong>&lt;ul&gt; &lt;li&gt;</strong> — unordered list.</li>
+            <li><strong>&lt;ol&gt; &lt;li&gt;</strong> — ordered list.</li>
+            <li><strong>&lt;span&gt;</strong> — inline generic container.</li>
+            <li><strong>&lt;strong&gt;, &lt;em&gt;</strong> — semantic emphasis.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Code & Preformatted</h3>
+          <pre class="code">&lt;pre&gt;Preformatted text&lt;/pre&gt;
+&lt;code&gt;Inline code&lt;/code&gt;
+&lt;blockquote&gt;A quote&lt;/blockquote&gt;
+          </pre>
+        </div>
+
+        <div class="full">
+          <h3>Example — Anchor & Image</h3>
+          <pre class="code">&lt;a href="https://example.com" target="_blank" rel="noopener"&gt;Visit example&lt;/a&gt;
+
+&lt;img src="image.jpg" alt="description" width="400"/&gt;
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tables -->
+    <section id="tables" class="section animate">
+      <h2>Tables — How to Create & Describe</h2>
+      <p class="lead">Tables allow you to show tabular data. Use &lt;table&gt; with &lt;thead&gt;, &lt;tbody&gt;, &lt;tr&gt;, &lt;th&gt; and &lt;td&gt; for structure and accessibility.</p>
+
+      <div class="grid">
+        <div>
+          <h3>Basic Table Markup</h3>
+          <pre class="code">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Age&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Alice&lt;/td&gt;&lt;td&gt;24&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+          </pre>
+        </div>
+
+        <div>
+          <h3>Rendered Example</h3>
+          <table class="demo-table">
+            <thead><tr><th>Name</th><th>Role</th><th>Country</th></tr></thead>
+            <tbody>
+              <tr><td>Alice</td><td>Developer</td><td>India</td></tr>
+              <tr><td>Bob</td><td>Designer</td><td>USA</td></tr>
+              <tr><td>Clara</td><td>Manager</td><td>UK</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="full">
+          <h3>Accessibility Tips</h3>
+          <ul style="margin-left:16px;margin-top:8px;color:#e9e9e9;line-height:1.6;">
+            <li>Use &lt;caption&gt; for tables that require a title.</li>
+            <li>Use &lt;th scope="col"&gt; and &lt;th scope="row"&gt; for screen readers.</li>
+            <li>Keep tables responsive — consider horizontal scrolling on small screens.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forms -->
+    <section id="forms" class="section animate">
+      <h2>Forms — Inputs, Checkboxes & Everything</h2>
+      <p class="lead">Forms gather user input. Each input should have a label. Use proper types and attributes (required, minlength, pattern) for better UX and validation.</p>
+
+      <div class="grid">
+        <div>
+          <h3>Form Markup (Code)</h3>
+          <pre class="code">&lt;form action="/submit" method="post"&gt;
+  &lt;label&gt;Name&lt;input type="text" name="name" required&gt;&lt;/label&gt;
+  &lt;label&gt;Email&lt;input type="email" name="email" required&gt;&lt;/label&gt;
+
+  &lt;fieldset&gt;
+    &lt;legend&gt;Choose your interests&lt;/legend&gt;
+    &lt;label&gt;&lt;input type="checkbox" name="interest" value="design"&gt; Design&lt;/label&gt;
+    &lt;label&gt;&lt;input type="checkbox" name="interest" value="dev"&gt; Development&lt;/label&gt;
+  &lt;/fieldset&gt;
+
+  &lt;label&gt;Message&lt;textarea name="msg" rows="4"&gt;&lt;/textarea&gt;&lt;/label&gt;
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;
+          </pre>
+        </div>
+
+        <div>
+          <h3>Live Form (Try it)</h3>
+          <div class="form-card">
+            <form id="demoForm" onsubmit="event.preventDefault();showResult()">
+              <div class="form-row">
+                <div style="flex:1">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" required>
+                </div>
+                <div style="flex:1">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                </div>
+              </div>
+
+              <div style="margin-bottom:10px">
+                <label>Gender</label>
+                <div style="display:flex;gap:12px;margin-top:6px">
+                  <label><input type="radio" name="gender" value="male" required> Male</label>
+                  <label><input type="radio" name="gender" value="female"> Female</label>
+                  <label><input type="radio" name="gender" value="other"> Other</label>
+                </div>
+              </div>
+
+              <div style="margin-bottom:10px">
+                <label>Interests</label>
+                <div style="display:flex;gap:12px;margin-top:6px;flex-wrap:wrap">
+                  <label><input type="checkbox" name="int" value="html"> HTML</label>
+                  <label><input type="checkbox" name="int" value="css"> CSS</label>
+                  <label><input type="checkbox" name="int" value="js"> JavaScript</label>
+                </div>
+              </div>
+
+              <div style="margin-bottom:10px">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                  <option value="in">India</option>
+                  <option value="us">United States</option>
+                  <option value="uk">United Kingdom</option>
+                </select>
+              </div>
+
+              <div style="margin-bottom:12px">
+                <label for="msg">Message</label>
+                <textarea id="msg" name="msg" rows="4" placeholder="Write something..."></textarea>
+              </div>
+
+              <div style="display:flex;gap:10px;align-items:center">
+                <button class="btn" type="submit">Submit</button>
+                <button type="button" class="ghost" onclick="document.getElementById('demoForm').reset()">Reset</button>
+              </div>
+
+              <div id="result" style="margin-top:12px;color:#dff7e1;background:rgba(0,0,0,0.25);padding:8px;border-radius:6px;display:none"></div>
+            </form>
+          </div>
+        </div>
+
+        <div class="full">
+          <h3>Form Tips & Best Practices</h3>
+          <ul style="margin-left:16px;margin-top:8px;color:#e9e9e9;line-height:1.6;">
+            <li>Always pair inputs with &lt;label for="id"&gt; for accessibility.</li>
+            <li>Use appropriate <code>type</code> attributes: <code>email</code>, <code>tel</code>, <code>number</code>.</li>
+            <li>Prefer server-side validation; use client-side validation for better UX.</li>
+            <li>Group related inputs with &lt;fieldset&gt; and &lt;legend&gt;.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Examples -->
+    <section id="examples" class="section animate">
+      <h2>Examples & Quick Cheatsheet</h2>
+      <div class="grid">
+        <div>
+          <h3>Semantic Example</h3>
+          <pre class="code">&lt;header&gt;&lt;h1&gt;Site title&lt;/h1&gt;&lt;/header&gt;
+&lt;nav&gt;&lt;ul&gt;&lt;li&gt;&lt;a&gt;Home&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/nav&gt;
+&lt;main&gt;&lt;article&gt;&lt;h2&gt;Post&lt;/h2&gt;&lt;/article&gt;&lt;/main&gt;
+&lt;footer&gt;Copyright&lt;/footer&gt;
+          </pre>
+        </div>
+
+        <div>
+          <h3>Image with alt & responsive</h3>
+          <pre class="code">&lt;img src="photo.jpg" alt="A description" style="max-width:100%;height:auto" /&gt;
+          </pre>
+        </div>
+
+        <div class="full">
+          <h3>Cheatsheet Table</h3>
+          <table class="demo-table">
+            <thead><tr><th>Tag</th><th>Use</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>&lt;a&gt;</td><td>Link</td><td>&lt;a href="#"&gt;Go&lt;/a&gt;</td></tr>
+              <tr><td>&lt;img&gt;</td><td>Image</td><td>&lt;img src="a.jpg" alt=""&gt;</td></tr>
+              <tr><td>&lt;form&gt;</td><td>User input</td><td>&lt;form&gt;&lt;input&gt;&lt;/form&gt;</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <footer style="text-align:center;color:#ddd;opacity:0.9;margin:20px 0 60px">
+      <small>Created for you — covers HTML basics, tables, forms and examples. Edit freely.</small>
+    </footer>
+  </main>
+
+  <script>
+    function showResult(){
+      const f=document.getElementById('demoForm');
+      const data=new FormData(f);
+      const obj={};
+      for(const [k,v] of data.entries()){
+        // handle multiple checkboxes with same name
+        if(obj[k]){
+          if(Array.isArray(obj[k])) obj[k].push(v); else obj[k]=[obj[k],v];
+        } else obj[k]=v;
+      }
+      document.getElementById('result').style.display='block';
+      document.getElementById('result').textContent = 'Form data: ' + JSON.stringify(obj, null, 2);
+    }
+  </script>
+</body>
+</html>

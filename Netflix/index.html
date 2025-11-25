@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Netflix Clone</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.png" type="image/x-icon" />
+</head>
+<body id="top">
+  <!-- Navbar -->
+  <header class="navbar">
+    <img src="images/logo.jpg" alt="Logo" class="logo" onclick="location.href='#top'"/>
+    <nav>
+      <a href="#top">Home</a>
+      <a href="#tvshows-section">TV Shows</a>
+      <a href="#movies-section">Movies</a>
+      <a href="#newpopular-section">New & Popular</a>
+      <a href="#mylist-section">My List</a>
+    </nav>
+    <div class="nav-right">
+      <a href="login.html" class="btn">Login</a>
+    </div>
+  </header>
+
+  <!-- Search -->
+  <div class="search-wrap">
+    <input id="searchInput" placeholder="Search movies or TV shows..." />
+    <button id="searchBtn">Search</button>
+  </div>
+  <div id="searchResults" class="movie-row"></div>
+
+  <!-- Banner -->
+  <section class="banner" id="banner">
+    <div class="banner-content">
+      <h1>Unlimited movies, TV shows, and more</h1>
+      <p>Watch anywhere. Cancel anytime.</p>
+      <a class="btn" href="signup.html">Sign Up</a>
+    </div>
+  </section>
+
+  <!-- Movies -->
+  <main>
+    <section id="movies-section" class="section-block">
+      <div id="movie-categories"></div>
+    </section>
+
+    <section id="tvshows-section" class="section-block">
+      <div id="tv-categories"></div>
+    </section>
+
+    <section id="newpopular-section">
+      <h2>New & Popular</h2>
+      <div class="movie-row" id="newPopularMovies"></div>
+    </section>
+
+    <section id="mylist-section" class="section-block">
+      <h2>My List</h2>
+      <div id="mylist-container" class="movie-row"></div>
+    </section>
+  </main>
+
+  <!-- Chatbot -->
+  <div id="chatbot" aria-hidden="false">
+    <div id="chatbot-header">Netflix Assistant 🤖</div>
+    <div id="chatbot-body" class="chat-body" style="display:none"></div>
+    <input id="chatbot-input" placeholder="Ask about the site — or press F2 to speak" />
+  </div>
+
+  <footer>
+    <p>© 2025 Netflix Clone — Powered by TMDB API</p>
+  </footer>
+
+  <script src="chatbot.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Learn Data Structures?</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Background image with animation */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('Data.jpg') no-repeat center center/cover;
+      z-index: -1;
+      filter: brightness(0.6);
+      animation: zoom 20s infinite alternate;
+    }
+
+    @keyframes zoom {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    /* Heading animation */
+    h1 {
+      color: #f39c12;
+      text-align: center;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(-30px);
+      animation: slideDown 1s ease forwards;
+    }
+    @keyframes slideDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      margin-top: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+    }
+
+    p, ul li {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+    li {
+      margin: 8px 0;
+    }
+
+    /* Back button */
+    a.back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 15px;
+      background: #f39c12;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.5s ease;
+    }
+    a.back-btn:hover {
+      background: #d35400;
+      transform: scale(1.1);
+    }
+
+    /* Visible state */
+    .show {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    .show-btn {
+      opacity: 1 !important;
+      transform: scale(1) !important;
+    }
+
+    /* Add slight fade-in on load */
+    body {
+      animation: fadeIn 2s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Why Learn Data Structures?</h1>
+  
+  <p>
+    Data Structures are the foundation of computer science and programming. 
+    They define how data is stored, accessed, and manipulated, which makes them essential for writing efficient code.
+  </p>
+
+  <h2>Benefits of Learning Data Structures</h2>
+  <ul>
+    <li><b>Efficiency</b> – The right data structure makes algorithms faster and more reliable.</li>
+    <li><b>Better Memory Usage</b> – Programs can run smoothly with optimized memory management.</li>
+    <li><b>Problem Solving</b> – Data structures power real-world applications like search engines, GPS, and social networks.</li>
+    <li><b>Interview Preparation</b> – Almost every technical interview focuses on DS and algorithms.</li>
+    <li><b>Core of Computer Science</b> – Used in databases, compilers, operating systems, artificial intelligence, etc.</li>
+  </ul>
+
+  <p>
+    If you want to become a strong programmer, mastering data structures is a must. 
+    Start with the basics such as <b>arrays</b> and <b>linked lists</b>, then explore advanced structures 
+    like <b>trees</b>, <b>graphs</b>, and <b>hash tables</b>.
+  </p>
+
+  <a href="Portfolio.html" class="back-btn">⬅ Back to Portfolio</a>
+
+  <script>
+    // Scroll animation
+    const elements = document.querySelectorAll("p, h2, li");
+    const backBtn = document.querySelector(".back-btn");
+
+    function checkScroll() {
+      const triggerBottom = window.innerHeight * 0.85;
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < triggerBottom) {
+          el.classList.add("show");
+        }
+      });
+      const rectBtn = backBtn.getBoundingClientRect();
+      if (rectBtn.top < triggerBottom) {
+        backBtn.classList.add("show-btn");
+      }
+    }
+
+    window.addEventListener("scroll", checkScroll);
+    window.addEventListener("load", checkScroll);
+  </script>
+</body>
+</html>

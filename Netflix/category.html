@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Category - Netflix Clone</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.png" type="image/x-icon" />
+</head>
+<body id="cat-top">
+  <header class="navbar">
+    <img src="images/logo.jpg" alt="Logo" class="logo" onclick="location.href='index.html'" />
+    <nav>
+      <a href="index.html#top">Home</a>
+      <a href="index.html#tvshows-section">TV Shows</a>
+      <a href="index.html#movies-section">Movies</a>
+      <a href="index.html#newpopular-section">New & Popular</a>
+      <a href="index.html#mylist-section">My List</a>
+    </nav>
+    <div class="nav-right">
+      <a href="login.html" class="btn">Login</a>
+    </div>
+  </header>
+
+  <main class="section-block">
+    <div id="category-title-wrapper">
+      <h1 id="category-title">Category</h1>
+      <button id="cat-back" class="btn">Back</button>
+    </div>
+
+    <div id="category-grid" class="grid"></div>
+
+    <div id="pagination" class="pagination">
+      <button id="prevPage">Previous</button>
+      <span id="pageIndicator">1</span>
+      <button id="nextPage">Next</button>
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      const BASE_URL = "https://api.themoviedb.org/3";
+      const API_KEY = "584ce82c24d069361abad1f7ba0b7973";
+      const IMG_URL = "https://image.tmdb.org/t/p/w300";
+
+      const categoryTitleEl = document.getElementById("category-title");
+      const grid = document.getElementById("category-grid");
+      const pageIndicator = document.getElementById("pageIndicator");
+      const nextBtn = document.getElementById("nextPage");
+      const prevBtn = document.getElementById("prevPage");
+      const backBtn = document.getElementById("cat-back");
+
+      const stored = JSON.parse(localStorage.getItem("selectedCategory") || "null");
+      if(!stored){ categoryTitleEl.textContent = "Category not found"; return; }
+
+      let page = stored.page || 1;
+      categoryTitleEl.textContent = stored.title;
+      pageIndicator.textContent = page;
+
+      async function loadPage(p){
+        grid.innerHTML = "";
+        pageIndicator.textContent = p;
+        const res = await fetch(`${stored.url}&page=${p}`);
+        const data = await res.json();
+        (data.results || []).forEach(item=>{
+          if(!item.poster_path) return;
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `<img loading="lazy" src="${IMG_URL}${item.poster_path}" alt="${item.title||item.name}" />
+                            <div class="card-title">${item.title||item.name}</div>`;
+          card.addEventListener("click", ()=>{
+            // open trailer in new tab
+            fetch(`${BASE_URL}/${stored.type || 'movie'}/${item.id}/videos?api_key=${API_KEY}`)
+              .then(r => r.json())
+              .then(d => {
+                const trailers = (d.results||[]).filter(v=>v.site==="YouTube" && v.type==="Trailer");
+                if(trailers.length>0){
+                  window.open(`https://www.youtube.com/watch?v=${trailers[0].key}`, "_blank");
+                } else alert("Trailer not available");
+              });
+          });
+          grid.appendChild(card);
+        });
+      }
+
+      loadPage(page);
+
+      nextBtn.addEventListener("click", ()=>{ page++; loadPage(page); stored.page = page; localStorage.setItem("selectedCategory", JSON.stringify(stored)); });
+      prevBtn.addEventListener("click", ()=>{ if(page>1){ page--; loadPage(page); stored.page = page; localStorage.setItem("selectedCategory", JSON.stringify(stored)); } });
+      backBtn.addEventListener("click", ()=>{ window.location.href = "index.html"; });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands of Fia - Redefining Fashion</title>
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/favicon.jpeg" type="image/x-icon">
+
+    <!-- CDNs: Tailwind, jQuery, Fancybox, AOS, Swiper, Lucide -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'hof-charcoal': '#111827',
+                    'hof-gold': '#C79A3D',
+                    'hof-ivory': '#F7F5F2',
+                    'hof-blush': '#E8B7B7',
+                },
+                fontFamily: {
+                    'sans': ['Inter', 'sans-serif'],
+                },
+            }
+        }
+    }
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-hof-ivory text-hof-charcoal font-sans antialiased">
+
+    <!-- ===== Header / Navbar ===== -->
+    <header id="navbar"
+        class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl mx-auto rounded-full bg-hof-ivory/80 backdrop-blur-lg shadow-md transition-all duration-300 z-50">
+        <div class="flex justify-between items-center px-6 py-4">
+            <a href="index.html">
+                <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/logo.png" alt="Hands of Fia Logo" class="h-10 w-auto md:h-12 object-contain">
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-hof-charcoal hover:text-hof-gold transition-colors">About</a>
+
+                <!-- Desktop Dropdown -->
+                <div class="relative group">
+                    <button class="flex items-center text-hof-charcoal hover:text-hof-gold transition-colors">
+                        Designs
+                        <i data-lucide="chevron-down"
+                            class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"></i>
+                    </button>
+                    <div
+                        class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-48 bg-hof-ivory rounded-lg shadow-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10 origin-top transform scale-95 group-hover:scale-100">
+                        <a href="#"
+                            class="block px-4 py-2 text-hof-charcoal hover:bg-hof-blush/50 rounded-md">Gallery</a>
+                        <a href="#"
+                            class="block px-4 py-2 text-hof-charcoal hover:bg-hof-blush/50 rounded-md">Collections</a>
+                        <a href="#"
+                            class="block px-4 py-2 text-hof-charcoal hover:bg-hof-blush/50 rounded-md">Events</a>
+                        <a href="#"
+                            class="block px-4 py-2 text-hof-charcoal hover:bg-hof-blush/50 rounded-md">Magazine</a>
+                        <a href="#"
+                            class="block px-4 py-2 text-hof-charcoal hover:bg-hof-blush/50 rounded-md">Press</a>
+                    </div>
+                </div>
+
+                <a href="#" class="text-hof-charcoal hover:text-hof-gold transition-colors">Shop</a>
+                <a href="#" class="text-hof-charcoal hover:text-hof-gold transition-colors">Blog</a>
+                <a href="#" class="text-hof-charcoal hover:text-hof-gold transition-colors">Contact</a>
+            </nav>
+
+            <button id="menu-toggle" class="md:hidden">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== Full Screen Overlay Menu ===== -->
+    <div id="menu-overlay" class="fixed inset-0 bg-hof-charcoal/95 z-40 flex items-center justify-center">
+        <nav class="flex flex-col items-center space-y-6 mt-10">
+            <a href="#"
+                class="text-xl font-bold text-hof-ivory hover:text-hof-gold transition-colors">About</a>
+            <!-- Mobile Dropdown -->
+            <div class="text-center">
+                <button id="mobile-dropdown-toggle"
+                    class="text-xl font-bold text-hof-ivory hover:text-hof-gold transition-colors flex items-center">
+                    Designs
+                    <i data-lucide="chevron-down" class="w-8 h-8 ml-2"></i>
+                </button>
+                <div id="mobile-dropdown" class="hidden flex-col items-center space-y-4 mt-4">
+                    <a href="#"
+                        class="text-xl font-bold text-hof-ivory/80 hover:text-hof-gold">Gallery</a>
+                    <a href="#"
+                        class="text-xl font-bold text-hof-ivory/80 hover:text-hof-gold">Collections</a>
+                    <a href="#" class="text-xl font-bold text-hof-ivory/80 hover:text-hof-gold">Events</a>
+                    <a href="#" class="text-xl font-bold text-hof-ivory/80 hover:text-hof-gold">Magazine</a>
+                    <a href="#" class="text-xl font-bold text-hof-ivory/80 hover:text-hof-gold">Press</a>
+                </div>
+            </div>
+
+            <a href="#"
+                class="text-xl font-bold text-hof-ivory hover:text-hof-gold transition-colors">Shop</a>
+            <a href="#" class="text-xl font-bold text-hof-ivory hover:text-hof-gold transition-colors">Blog</a>
+            <a href="#"
+                class="text-xl font-bold text-hof-ivory hover:text-hof-gold transition-colors">Contact</a>
+
+            <!-- Social Icons in Menu -->
+            <div class="flex space-x-6 pt-8">
+                <a href="#" class="text-hof-ivory hover:text-hof-gold transition-colors">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                </a>
+                <a href="#" class="text-hof-ivory hover:text-hof-gold transition-colors">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                </a>
+                <a href="#" class="text-hof-ivory hover:text-hof-gold transition-colors">
+                    <i data-lucide="facebook" class="w-6 h-6"></i>
+                </a>
+            </div>
+        </nav>
+
+    </div>
+
+    <!-- ===== Main Content ===== -->
+    <main>
+        <!-- ===== Hero Section ===== -->
+        <section id="hero" class="min-h-screen flex items-center pt-28">
+            <div class="container mx-auto px-6 grid md:grid-cols-12 items-center gap-12">
+                <!-- Left Content -->
+                <div class="hero-content-left text-center md:text-left md:col-span-5" data-aos="fade-right">
+                    <h1 class="text-5xl md:text-7xl font-extrabold text-hof-charcoal leading-tight">
+                        Redefining Fashion
+                        <span class="block text-hof-gold">with Hands of Fia</span>
+                    </h1>
+                    <p class="mt-6 text-lg text-gray-600 max-w-lg mx-auto md:mx-0">
+                        Crafting unique stories through bespoke designs. Discover a world where elegance, creativity,
+                        and confidence are stitched into every piece.
+                    </p>
+                    <a href="#contact" data-scroll
+                        class="inline-block mt-10 px-10 py-4 bg-hof-gold text-white text-lg font-semibold rounded-full shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105">
+                        Book a Consultation
+                    </a>
+                </div>
+                <!-- Right Image -->
+                <div class="hero-content-right md:col-span-7 h-[60vh] md:h-[80vh] relative" data-aos="fade-left"
+                    data-aos-delay="100">
+                    <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/detail-4.png" alt="Fashion model wearing a Hands of Fia design"
+                        class="w-full h-full object-cover rounded-3xl shadow-2xl">
+
+                    <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/detail-5.png" alt="Fabric Detail"
+                        class="absolute -bottom-12 -left-12 w-48 h-64 md:w-56 md:h-72 object-cover rounded-2xl shadow-xl border-4 border-hof-ivory"
+                        data-aos="fade-up" data-aos-delay="300">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== About Section ===== -->
+        <section id="about" class="py-24 bg-white">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+                <!-- Designer Photo -->
+                <div data-aos="fade-right">
+                    <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/magazine-cover.png" alt="Fia, the designer"
+                        class="rounded-3xl shadow-xl w-full object-cover" loading="lazy" style="height:600px">
+                </div>
+                <!-- About Content -->
+                <div data-aos="fade-left">
+                    <span class="text-hof-gold font-semibold tracking-widest uppercase">The Designer</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-hof-charcoal mt-2">
+                        My Story, My Passion
+                    </h2>
+                    <p class="mt-6 text-gray-600 text-lg">
+                        From a young age, I saw fashion as more than just clothing; it's a language, a form of art, a
+                        silent expression of confidence. 'Hands of Fia' was born from a desire to blend timeless
+                        elegance with modern audacity.
+                    </p>
+                    <p class="mt-4 text-gray-600">
+                        My design philosophy is simple: create pieces that empower. Each collection is inspired by the
+                        stories of strong individuals, by nature's geometry, and by the vibrant pulse of the city.
+                    </p>
+                    <!-- Animated Counters -->
+                    <div id="counters" class="grid grid-cols-3 gap-4 mt-10 text-center">
+                        <div>
+                            <span class="counter-value text-5xl font-bold text-hof-gold" data-target="12">0</span>
+                            <span class="block text-sm text-gray-500 mt-1">Signature Collections</span>
+                        </div>
+                        <div>
+                            <span class="counter-value text-5xl font-bold text-hof-gold" data-target="200">0</span>
+                            <span class="block text-sm text-gray-500 mt-1">Happy Clients</span>
+                        </div>
+                        <div>
+                            <span class="counter-value text-5xl font-bold text-hof-gold" data-target="7">0</span>
+                            <span class="block text-sm text-gray-500 mt-1">Fashion Awards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Signature Collections Section ===== -->
+        <section id="collections" class="py-24 bg-hof-ivory overflow-hidden">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-hof-charcoal text-center" data-aos="fade-up">
+                    Signature Collections
+                </h2>
+                <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto mt-4" data-aos="fade-up"
+                    data-aos-delay="100">
+                    A glimpse into the narratives that shape our designs.
+                </p>
+            </div>
+
+            <!-- Swiper -->
+            <div class="swiper-container collections-slider mt-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper py-8 px-4">
+                    <!-- Collection Card 1 -->
+                    <div class="swiper-slide">
+                        <div
+                            class="rounded-2xl shadow-lg overflow-hidden group relative transform transition-transform duration-300 h-full">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/2.png" alt="The Golden Hour Collection"
+                                class="w-full h-full object-cover" loading="lazy">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent transition-all duration-300 group-hover:from-black/90">
+                                <div class="absolute bottom-0 left-0 p-6">
+                                    <h3 class="text-3xl font-bold text-white">The Golden Hour</h3>
+                                    <span class="text-sm text-gray-300">2024</span>
+                                    <a href="#"
+                                        class="flex mt-4 px-5 py-2 bg-hof-gold text-white justify-center text-sm font-semibold rounded-full opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                        View Lookbook
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Collection Card 2 -->
+                    <div class="swiper-slide">
+                        <div
+                            class="rounded-2xl shadow-lg overflow-hidden group relative transform transition-transform duration-300 h-full">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/3.png" alt="Urban Poetry Collection"
+                                class="w-full h-full object-cover" loading="lazy">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent transition-all duration-300 group-hover:from-black/90">
+                                <div class="absolute bottom-0 left-0 p-6">
+                                    <h3 class="text-3xl font-bold text-white">Urban Poetry</h3>
+                                    <span class="text-sm text-gray-300">2023</span>
+                                    <a
+                                        class="flex mt-4 px-5 py-2 bg-hof-gold text-white justify-center text-sm font-semibold rounded-full opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                        View Lookbook
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Collection Card 3 -->
+                    <div class="swiper-slide">
+                        <div
+                            class="rounded-2xl shadow-lg overflow-hidden group relative transform transition-transform duration-300 h-full">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/4.png" alt="Blush Symphony Collection"
+                                class="w-full h-full object-cover" loading="lazy">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent transition-all duration-300 group-hover:from-black/90">
+                                <div class="absolute bottom-0 left-0 p-6">
+                                    <h3 class="text-3xl font-bold text-white">Blush Symphony</h3>
+                                    <span class="text-sm text-gray-300">2023</span>
+                                    <a
+                                        class="flex mt-4 px-5 py-2 bg-hof-gold text-white justify-center text-sm font-semibold rounded-full opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                        View Lookbook
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Collection Card 4 -->
+                    <div class="swiper-slide">
+                        <div
+                            class="rounded-2xl shadow-lg overflow-hidden group relative transform transition-transform duration-300 h-full">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/5.png" alt="Ivory Dreams Collection"
+                                class="w-full h-full object-cover" loading="lazy">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent transition-all duration-300 group-hover:from-black/90">
+                                <div class="absolute bottom-0 left-0 p-6">
+                                    <h3 class="text-3xl font-bold text-white">Ivory Dreams</h3>
+                                    <span class="text-sm text-gray-300">2022</span>
+                                    <a
+                                        class="flex mt-4 px-5 py-2 bg-hof-gold text-white justify-center text-sm font-semibold rounded-full opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                        View Lookbook
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Collection Card 5 -->
+                    <div class="swiper-slide">
+                        <div
+                            class="rounded-2xl shadow-lg overflow-hidden group relative transform transition-transform duration-300 h-full">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/7.png" alt="Ivory Dreams Collection"
+                                class="w-full h-full object-cover" loading="lazy">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent transition-all duration-300 group-hover:from-black/90">
+                                <div class="absolute bottom-0 left-0 p-6">
+                                    <h3 class="text-3xl font-bold text-white">Ivory Dreams</h3>
+                                    <span class="text-sm text-gray-300">2022</span>
+                                    <a
+                                        class="flex mt-4 px-5 py-2 bg-hof-gold text-white justify-center text-sm font-semibold rounded-full opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                        View Lookbook
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination relative mt-8"></div>
+            </div>
+        </section>
+
+        <!-- ===== Gallery / Portfolio Section ===== -->
+        <section id="gallery" class="pt-24 pb-32 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-hof-charcoal text-center" data-aos="fade-up">
+                    Design Gallery
+                </h2>
+                <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto mt-4" data-aos="fade-up"
+                    data-aos-delay="100">
+                    Explore the craftsmanship, detail, and artistry in every stitch.
+                </p>
+
+                <!-- Responsive Grid -->
+                <div class="mt-12 masonry-gallery" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/9.png" data-fancybox="gallery"
+                        data-caption="Golden Hour Gown - Couture Collection" class="masonry-item" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/9.png" alt="Couture Gown 1"
+                            class="w-full h-full object-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105"
+                            loading="lazy">
+                    </a>
+                    <a href="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/11.png" data-fancybox="gallery"
+                        data-caption="Midnight Structure - Runway Show" class="masonry-item" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/11.png" alt="Runway Look 1"
+                            class="w-full h-full object-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105"
+                            loading="lazy">
+                    </a>
+                    <a href="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/6.jpeg" data-fancybox="gallery"
+                        data-caption="Ivory Dream Wedding Dress - Bridal" class="masonry-item" data-aos="fade-up"
+                        data-aos-delay="400">
+                        <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/6.jpeg" alt="Bridal Gown 1"
+                            class="w-full h-full object-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105"
+                            loading="lazy">
+                    </a>
+                    <a href="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/14.png" data-fancybox="gallery" data-caption="Blush Linen Set - Casual Wear"
+                        class="masonry-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/14.png" alt="Casual Look 1"
+                            class="w-full h-full object-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-1s-105"
+                            loading="lazy">
+                    </a>
+                    <a href="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/15.png" data-fancybox="gallery" data-caption="Shadow Play - Runway Show"
+                        class="masonry-item" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/15.png" alt="Runway Look 2"
+                            class="w-full h-full object-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105"
+                            loading="lazy">
+                    </a>
+                    <a href="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/13.png" data-fancybox="gallery"
+                        data-caption="Liquid Gold Cape - Couture Collection" class="masonry-item" data-aos="fade-up"
+                        data-aos-delay="400">
+                        <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/13.png" alt="Couture Gown 2"
+                            class="w-full h-full object-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105"
+                            loading="lazy">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== The Design Process Section ===== -->
+        <section id="process" class="pt-32 pb-32 bg-hof-blush/30">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-hof-charcoal text-center" data-aos="fade-up">
+                    The Design Process
+                </h2>
+                <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto mt-4" data-aos="fade-up"
+                    data-aos-delay="100">
+                    From Concept to Creation
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+                    <!-- Step 1 -->
+                    <div class="bg-white p-10 rounded-2xl shadow-lg text-center" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div class="inline-block p-4 bg-hof-gold/10 rounded-full">
+                            <i data-lucide="message-circle" class="w-8 h-8 text-hof-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-hof-charcoal mt-5">1. Consultation</h3>
+                        <p class="mt-3 text-gray-600">
+                            It begins with your story. We meet to discuss your vision, inspiration, and desires in a
+                            personal consultation.
+                        </p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="bg-white p-10 rounded-2xl shadow-lg text-center" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <div class="inline-block p-4 bg-hof-gold/10 rounded-full">
+                            <i data-lucide="pencil-ruler" class="w-8 h-8 text-hof-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-hof-charcoal mt-5">2. Sketch & Fabric</h3>
+                        <p class="mt-3 text-gray-600">
+                            Ideas take shape. We present initial sketches and source the perfect, luxurious materials
+                            for your approval.
+                        </p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="bg-white p-10 rounded-2xl shadow-lg text-center" data-aos="fade-up"
+                        data-aos-delay="400">
+                        <div class="inline-block p-4 bg-hof-gold/10 rounded-full">
+                            <i data-lucide="scissors" class="w-8 h-8 text-hof-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-hof-charcoal mt-5">3. Creation & Fitting</h3>
+                        <p class="mt-3 text-gray-600">
+                            Our atelier brings the design to life. We hold meticulous fittings to ensure a flawless and
+                            comfortable fit.
+                        </p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="bg-white p-10 rounded-2xl shadow-lg text-center" data-aos="fade-up"
+                        data-aos-delay="500">
+                        <div class="inline-block p-4 bg-hof-gold/10 rounded-full">
+                            <i data-lucide="sparkles" class="w-8 h-8 text-hof-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-hof-charcoal mt-5">4. The Reveal</h3>
+                        <p class="mt-3 text-gray-600">
+                            Your one-of-a-kind piece is complete, ready to be worn and to empower your unique story.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Testimonials Section ===== -->
+        <section id="testimonials" class="py-24 bg-white">
+            <div class="container mx-auto px-6" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-hof-charcoal text-center">
+                    Words of Praise
+                </h2>
+
+                <!-- Testimonial Slider -->
+                <div id="testimonial-slider" class="relative max-w-3xl mx-auto mt-12 text-center h-48">
+                    <!-- Slide 1 -->
+                    <div
+                        class="testimonial-item absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-1000">
+                        <p class="text-2xl font-medium text-gray-700 italic">
+                            "Working with Fia was a dream. She didn't just design a dress; she crafted an experience. I
+                            felt like pure royalty."
+                        </p>
+                        <span class="block text-hof-gold font-bold text-lg mt-6">— Anna S., Bridal Client</span>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div
+                        class="testimonial-item absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-1000">
+                        <p class="text-2xl font-medium text-gray-700 italic">
+                            "Hands of Fia represents the future of fashion. Bold, unapologetic, yet incredibly elegant."
+                        </p>
+                        <span class="block text-hof-gold font-bold text-lg mt-6">— VOGUE Magazine</span>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div
+                        class="testimonial-item absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-1000">
+                        <p class="text-2xl font-medium text-gray-700 italic">
+                            "The attention to detail is unmatched. Every piece feels personal, powerful, and impeccably
+                            made."
+                        </p>
+                        <span class="block text-hof-gold font-bold text-lg mt-6">— Mark R., Stylist</span>
+                    </div>
+                </div>
+
+                <!-- Press Mentions / Logos -->
+                <div class="mt-20">
+                    <h3 class="text-sm font-semibold text-gray-500 text-center tracking-widest uppercase">As Featured In
+                    </h3>
+                    <!-- Logo Scroller -->
+                    <div class="logo-scroller mt-10 filter grayscale opacity-60" data-aos="fade-up">
+                        <div class="logo-scroller-inner">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/ELLE_Magazine_Logo.png" alt="Elle Logo" loading="lazy">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/VOGUE_LOGO.png" alt="Vogue Logo" loading="lazy">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/Harper_Bazaar_Logo.png" alt="Harper's Bazaar Logo" class="h-10"
+                                loading="lazy">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/GQ-Logo.jpg" alt="GQ Logo" loading="lazy">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/Tatler_logo.png" alt="Tatler Logo" class="h-7" loading="lazy">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/paris fashion week.png" alt="Paris Fashion Week Logo" class="h-7"
+                                loading="lazy">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/chanel.png" alt="Chanel Logo" loading="lazy">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/Victoria-Secret-Logo.png" alt="Victoria Secret Logo" loading="lazy">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/gucci.png" alt="Gucci Logo" class="h-10" loading="lazy">
+                            <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/versace.png" alt="Versace Logo" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Contact Section ===== -->
+        <section id="contact" class="py-24 bg-hof-ivory">
+            <div class="container mx-auto px-6" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-hof-charcoal text-center">
+                    Book a Consultation
+                </h2>
+                <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto mt-4">
+                    Have a vision? Let's bring it to life. Fill out the form below or reach out directly.
+                </p>
+
+                <form class="max-w-2xl mx-auto mt-12 space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <input type="text" id="name"
+                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-hof-gold focus:border-hof-gold">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" id="email"
+                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-hof-gold focus:border-hof-gold">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="date" class="block text-sm font-medium text-gray-700">Preferred Date
+                            (Optional)</label>
+                        <input type="date" id="date"
+                            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-hof-gold focus:border-hof-gold">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                        <textarea id="message" rows="5"
+                            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-hof-gold focus:border-hof-gold"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit"
+                            class="inline-block mt-4 px-12 py-4 bg-hof-gold text-white text-lg font-semibold rounded-full shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+
+                <div class="text-center mt-16">
+                    <p class="text-gray-600">Or reach out directly:</p>
+                    <a href="mailto:hello@handsoffia.com"
+                        class="text-2xl font-semibold text-hof-charcoal hover:text-hof-gold transition-colors mt-2 block">
+                        hello@handsoffia.com
+                    </a>
+                    <!-- Quick Contact Buttons -->
+                    <div class="flex justify-center gap-4 mt-6">
+                        <a href="#"
+                            class="flex items-center gap-2 px-6 py-3 bg-green-500 text-white font-medium rounded-full shadow-md hover:bg-green-600 transition-colors">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            WhatsApp
+                        </a>
+                        <a href="#contact"
+                            class="flex items-center gap-2 px-6 py-3 bg-white text-hof-charcoal font-medium rounded-full shadow-md hover:bg-gray-50 transition-colors border border-gray-200">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="bg-hof-charcoal text-hof-ivory pt-16 relative">
+        <!-- Decorative SVG Border -->
+        <div class="absolute top-0 left-0 w-full overflow-hidden leading-[0]">
+            <svg class="relative block w-full h-[60px] md:h-[100px]" data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0 L0,20 Q600,100 1200,20 L1200,0 Z" class="fill-white"></path>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-6">
+            <!-- Top: Quick Links & Newsletter -->
+            <div class="grid md:grid-cols-3 gap-12 pb-16">
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Hands of Fia</h4>
+                    <nav class="grid grid-cols-2 gap-2">
+                        <a href="#" class="hover:text-hof-gold transition-colors">About</a>
+                        <a href="#" class="hover:text-hof-gold transition-colors">Collections</a>
+                        <a href="#" class="hover:text-hof-gold transition-colors">Gallery</a>
+                        <a href="#" class="hover:text-hof-gold transition-colors">Events</a>
+                        <a href="#" class="hover:text-hof-gold transition-colors">Blogs</a>
+                        <a href="#" class="hover:text-hof-gold transition-colors">Press</a>
+                        <a href="#" class="hover:text-hof-gold transition-colors">Contact</a>
+                        <a href="#" class="hover:text-hof-gold transition-colors">Terms & Privacy</a>
+                    </nav>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="md:col-span-2">
+                    <h4 class="text-xl font-bold mb-4">Subscribe for Atelier Updates</h4>
+                    <p class="text-gray-400 mb-4">
+                        Receive exclusive access to new collections, behind-the-scenes, and private event invitations.
+                    </p>
+                    <form class="flex flex-col sm:flex-row gap-2">
+                        <input type="email" placeholder="Enter your email"
+                            class="w-full flex-grow px-4 py-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:ring-hof-gold focus:border-hof-gold focus:outline-none">
+                        <button type="submit"
+                            class="px-6 py-3 bg-hof-gold text-white font-semibold rounded-lg hover:bg-opacity-90 transition-colors">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Middle: Instagram Feed -->
+            <div class="border-t border-gray-700 pt-12 pb-16">
+                <h4 class="text-xl font-bold text-center mb-8">
+                    Follow <a href="#" class="text-hof-gold hover:underline">@HandsofFia</a>
+                </h4>
+                <div class="grid grid-cols-3 md:grid-cols-6 gap-2">
+                    <a href="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/1.png" data-fancybox="instagram"
+                        data-caption="Detail shot from our latest fitting." class="block rounded-lg overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/1.png" alt="Instagram Post 1" class="w-full h-full object-cover"
+                            loading="lazy">
+                    </a>
+                    <a href="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/6.png" data-fancybox="instagram" data-caption="Sketching the Blush Symphony."
+                        class="block rounded-lg overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/6.png" alt="Instagram Post 2" class="w-full h-full object-cover"
+                            loading="lazy">
+                    </a>
+                    <a href="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/11.png" data-fancybox="instagram" data-caption="Backstage moments."
+                        class="block rounded-lg overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/11.png" alt="Instagram Post 3" class="w-full h-full object-cover"
+                            loading="lazy">
+                    </a>
+                    <a href="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/13.png" data-fancybox="instagram" data-caption="Ivory Dreams moodboard."
+                        class="block rounded-lg overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/13.png" alt="Instagram Post 4" class="w-full h-full object-cover"
+                            loading="lazy">
+                    </a>
+                    <a href="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/accessories.png" data-fancybox="instagram" data-caption="The final look."
+                        class="block rounded-lg overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/accessories.png" alt="Instagram Post 5"
+                            class="w-full h-full object-cover" loading="lazy">
+                    </a>
+                    <a href="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/detail-3.png" data-fancybox="instagram" data-caption="Atelier life."
+                        class="block rounded-lg overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/Hands%20of%20Fia%20Fashion%20Design/detail-3.png" alt="Instagram Post 6" class="w-full h-full object-cover"
+                            loading="lazy">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom: Copyright & Socials -->
+            <div class="bg-black/20 py-8">
+                <div
+                    class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                    <span class="text-gray-400 text-sm">
+                        © <span id="current-year"></span> Hands of Fia. All Rights Reserved.
+                        Made by
+                        <a href="#" target="_blank"
+                            class="text-hof-gold font-medium hover:underline">
+                            Harsh Bhosale</a>.
+                    </span>
+                    <div class="flex space-x-5 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-400 hover:text-hof-gold transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-hof-gold transition-colors">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-hof-gold transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-hof-gold transition-colors">
+                            <i data-lucide="search" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Scroll to Top Button ===== -->
+    <a href="#hero" data-scroll id="scrollTopBtn"
+        class="fixed bottom-8 right-8 z-50 p-4 bg-hof-gold text-white rounded-full shadow-lg transition-all duration-300 opacity-0 invisible transform hover:scale-110 hover:shadow-xl">
+        <i data-lucide="scissors" class="w-6 h-6"></i>
+    </a>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

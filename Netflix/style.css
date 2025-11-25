@@ -1,0 +1,114 @@
+/* ---------------- Global ---------------- */
+:root{
+  --bg:#0f0f0f;
+  --card:#141414;
+  --accent:#e50914;
+  --muted:#aaa;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:#fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  scroll-behavior:smooth;
+}
+
+/* Navbar */
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 22px;
+  background:linear-gradient(180deg, rgba(0,0,0,0.85), transparent);
+  position:sticky;
+  top:0;
+  z-index:200;
+}
+.logo{height:36px; cursor:pointer}
+.navbar nav a{color:#fff; text-decoration:none; margin:0 10px; font-weight:600; transition:color .2s}
+.navbar nav a:hover{color:var(--accent)}
+.nav-right .btn{background:var(--accent); color:#fff; padding:8px 12px; border-radius:5px; text-decoration:none}
+
+/* Search */
+.search-wrap{display:flex; justify-content:center; padding:12px 20px; gap:8px}
+#searchInput{width:60%; max-width:720px; padding:10px 12px; border-radius:6px; border:none; background:#222; color:#fff}
+#searchBtn{padding:10px 14px; border:none; background:var(--accent); border-radius:6px; color:#fff; cursor:pointer}
+
+/* Banner */
+.banner{height:56vh; display:flex; align-items:center; padding:40px; background-size:cover; background-position:center; background-image:url('images/background.jpg')}
+.banner-content h1{font-size:2.6rem; margin:0 0 12px; text-shadow:0 4px 30px rgba(0,0,0,.8)}
+.banner-content p{margin:0 0 18px; color:var(--muted)}
+
+/* Sections */
+.section-block{padding:22px}
+.section-block h2{margin:0 0 12px}
+
+/* Movie row */
+.movie-row{display:flex; gap:12px; overflow-x:auto; padding:8px 0; scrollbar-width:none}
+.movie-row::-webkit-scrollbar{display:none}
+.movie-row img{width:180px; border-radius:8px; cursor:pointer; transition:transform .25s, box-shadow .25s}
+.movie-row img:hover{transform:translateY(-6px) scale(1.06); box-shadow:0 12px 30px rgba(0,0,0,.6), 0 0 12px rgba(229,9,20,.12)}
+
+/* grid for category page */
+.grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:14px}
+.card{background:var(--card); border-radius:8px; overflow:hidden; text-align:center; padding:8px; cursor:pointer}
+.card img{width:100%; height:auto; border-radius:6px}
+.card-title{font-size:0.95rem; margin-top:8px; color:var(--muted)}
+
+#new-popular {
+  margin-top: 50px;
+  padding: 20px;
+  color: white;
+}
+
+#newPopularMovies {
+  display: flex;
+  overflow-x: scroll;
+  gap: 10px;
+}
+
+#newPopularMovies img {
+  width: 150px;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+
+#newPopularMovies img:hover {
+  transform: scale(1.1);
+}
+
+/* My List */
+#mylist-container img{width:140px}
+
+/* modal */
+.modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,.85); z-index:9999; align-items:center; justify-content:center}
+.modal-inner{width:90%; max-width:900px; height:70vh; background:#000; border-radius:8px; position:relative; padding:12px}
+.modal-inner iframe{width:100%; height:100%; border-radius:6px}
+.modal-close{position:absolute; top:8px; right:10px; background:transparent; color:#fff; border:none; font-size:20px; cursor:pointer}
+
+/* Category header on category.html */
+#category-title-wrapper{display:flex; align-items:center; justify-content:space-between; gap:12px}
+#category-title{margin:0}
+
+/* Chatbot */
+#chatbot{position:fixed; right:20px; bottom:20px; width:300px; max-width:90%; background:var(--card); border:2px solid var(--accent); border-radius:10px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,.6); z-index:9999}
+#chatbot-header{background:var(--accent); color:#fff; padding:10px; font-weight:700; cursor:grab; user-select:none}
+.chat-body{height:260px; overflow:auto; padding:10px; display:flex; flex-direction:column; gap:6px}
+#chatbot-body p{padding:8px 10px; border-radius:8px; max-width:85%}
+#chatbot-body .user{background:var(--accent); color:#fff; align-self:flex-end}
+#chatbot-body .bot{background:#222; color:#fff; align-self:flex-start}
+#chatbot-input{border:none; padding:12px; background:#111; color:#fff; width:100%; outline:none; box-sizing:border-box}
+
+/* pagination */
+.pagination{display:flex; gap:8px; align-items:center; justify-content:center; margin:14px 0}
+.pagination button{padding:8px 12px; border-radius:6px; border:none; background:#222; color:#fff; cursor:pointer}
+
+/* responsive */
+@media (max-width:760px){
+  .movie-row img{width:120px}
+  #searchInput{width:70%}
+  .banner{height:40vh}
+}

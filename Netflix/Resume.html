@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresher Resume - Harsh Bhosale</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .resume {
+      width: 850px;
+      display: flex;
+      background: #ffffff;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* LEFT SIDE */
+    .left {
+      width: 35%;
+      background-color: #1e293b;
+      color: white;
+      padding: 40px 30px; /* Added more top/bottom padding */
+      position: relative;
+      text-align: center;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #facc15;
+      margin: 0 auto 20px;
+      background: url('') no-repeat center/cover;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #facc15;
+    }
+
+    .left h2 {
+      text-align: center;
+      font-size: 20px;
+      color: #facc15;
+      margin-bottom: 25px;
+    }
+
+    .info {
+      margin-top: 30px; /* Added spacing between sections */
+      text-align: left;
+    }
+
+    .info h3 {
+      border-bottom: 2px solid #facc15;
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .info p {
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #e2e8f0;
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 35px; /* Added more space at the bottom */
+      font-size: 14px;
+      color: #cbd5e1;
+    }
+
+    .contact p {
+      margin: 5px 0;
+    }
+
+    /* RIGHT SIDE */
+    .right {
+      width: 65%;
+      padding: 40px; /* Added slightly more padding for balance */
+    }
+
+    .right h1 {
+      color: #1e293b;
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .right h3 {
+      color: #475569;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #1e293b;
+      border-bottom: 2px solid #facc15;
+      margin-bottom: 12px;
+      font-size: 20px;
+      display: inline-block;
+    }
+
+    .section p, .section li {
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 10px;
+    }
+
+    ul li::before {
+      content: "• ";
+      color: #facc15;
+      font-weight: bold;
+    }
+
+    /* Hidden file input */
+    #photoUpload {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="resume">
+
+    <!-- LEFT SIDE -->
+    <div class="left">
+      <input type="file" id="photoUpload" accept="image/*">
+      <div class="profile-pic" id="profilePic" title="Click to upload photo"></div>
+
+      <h2>Harsh Bhosale</h2>
+
+      <div class="info">
+        <h3>Contact Info</h3>
+        <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
+        <p><strong>Email:</strong> yourname@email.com</p>
+        <p><strong>Address:</strong> Your City, Your State</p>
+        <p><strong>DOB:</strong> DD-MM-YYYY</p>
+      </div>
+
+      <div class="info">
+        <h3>Experience</h3>
+        <p>Fresher</p>
+      </div>
+
+      <div class="info">
+        <h3>Languages</h3>
+        <p>English</p>
+        <p>Hindi</p>
+      </div>
+
+      <div class="contact">
+        <p>Thank you for reviewing my resume.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+      <h1>Harsh Bhosale</h1>
+      <h3>B.Sc. (Hons.) Computer Science Student</h3>
+
+      <!-- About Me -->
+      <div class="section">
+        <h2>About Me</h2>
+        <p>I am a motivated and hardworking B.Sc. (Hons.) Computer Science student with a strong interest in learning new technologies and improving my technical skills. I am seeking an opportunity to start my professional career where I can apply my knowledge, contribute to the team, and continue to learn and grow.</p>
+      </div>
+
+      <!-- Education -->
+      <div class="section">
+        <h2>Education</h2>
+        <p><strong>B.Sc. (Hons.) Computer Science</strong><br>
+        [Your College Name], [Your University Name]<br>
+        Year: 2022 – Present</p><br>
+
+        <p><strong>Class 12th (Intermediate)</strong><br>
+        [Your School Name], [Board Name]<br>
+        Year: 2021 – Percentage: [Your %]</p><br>
+
+        <p><strong>Class 10th (High School)</strong><br>
+        [Your School Name], [Board Name]<br>
+        Year: 2019 – Percentage: [Your %]</p>
+      </div>
+
+      <!-- Technical Skills -->
+      <div class="section">
+        <h2>Technical Skills</h2>
+        <ul>
+          <li>C Programming</li>
+          <li>Python (Basic)</li>
+          <li>HTML & CSS</li>
+          <li>Java (Basic)</li>
+          <li>MS Office (Word, Excel, PowerPoint)</li>
+          <li>Computer Fundamentals</li>
+        </ul>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="section">
+        <h2>Soft Skills</h2>
+        <ul>
+          <li>Good communication</li>
+          <li>Teamwork and collaboration</li>
+          <li>Problem-solving</li>
+          <li>Adaptability</li>
+          <li>Time management</li>
+          <li>Positive attitude</li>
+          <li>Quick learner</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Click on circle to upload and preview photo
+    const profilePic = document.getElementById('profilePic');
+    const uploadInput = document.getElementById('photoUpload');
+
+    profilePic.addEventListener('click', () => uploadInput.click());
+
+    uploadInput.addEventListener('change', function() {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          profilePic.style.backgroundImage = `url('${e.target.result}')`;
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+
+</body>
+</html>

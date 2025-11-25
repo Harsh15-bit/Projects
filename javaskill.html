@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Java Complete Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body {
+      background: url('https://images.unsplash.com/photo-1521791136064-7986c2920216') no-repeat center center/cover;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.75);
+      color: #ffb400;
+      font-size: 2.8rem;
+      font-weight: bold;
+      animation: fadeInDown 1.5s ease;
+      letter-spacing: 2px;
+      width: 100%;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    }
+
+    section {
+      max-width: 950px;
+      width: 90%;
+      margin: 20px auto;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      animation: fadeInUp 1.5s ease;
+    }
+
+    h2 {
+      color: #ffb400;
+      margin-bottom: 10px;
+    }
+
+    p, li {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    ul { margin-left: 20px; }
+
+    code, pre {
+      display: block;
+      background: rgba(255,255,255,0.1);
+      color: #00ffae;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-family: monospace;
+      overflow-x: auto;
+    }
+
+    .demo {
+      text-align: center;
+      margin-top: 15px;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+    }
+
+    input {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
+      border: none;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #ffb400;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      color: black;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff9900;
+      transform: scale(1.05);
+    }
+
+    a.back-btn {
+      display: inline-block;
+      margin: 40px auto;
+      padding: 12px 25px;
+      background: #ffb400;
+      color: black;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    a.back-btn:hover {
+      background: #ff9900;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>☕ Java Complete Guide</header>
+
+  <!-- Main Java Topics -->
+  <section>
+    <h2>📘 What is Java?</h2>
+    <p>Java is a high-level, class-based, object-oriented programming language developed by <b>James Gosling</b> at Sun Microsystems in 1995. It is platform-independent, meaning programs written in Java can run on any system that has a Java Virtual Machine (JVM).</p>
+  </section>
+
+  <section>
+    <h2>📜 History of Java</h2>
+    <ul>
+      <li>Developed by James Gosling in 1995 at Sun Microsystems.</li>
+      <li>Originally called “Oak”, later renamed “Java”.</li>
+      <li>Owned by Oracle Corporation after Sun Microsystems acquisition.</li>
+      <li>Java 1.0 released in 1996 – now evolved to Java SE 21+.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>💡 Key Features of Java</h2>
+    <ul>
+      <li>Simple and Object-Oriented</li>
+      <li>Platform Independent (Write Once, Run Anywhere)</li>
+      <li>Secure and Robust</li>
+      <li>Multithreaded and High Performance</li>
+      <li>Distributed and Portable</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🧩 Basic Structure of Java Program</h2>
+    <pre>
+class HelloWorld {
+  public static void main(String[] args) {
+    System.out.println("Hello, Java!");
+  }
+}
+    </pre>
+  </section>
+
+  <section>
+    <h2>🔹 Data Types in Java</h2>
+    <ul>
+      <li>Primitive Types: int, float, double, char, boolean, byte, short, long</li>
+      <li>Non-Primitive: Arrays, Classes, Interfaces, Strings</li>
+    </ul>
+    <pre>
+int age = 20;
+float marks = 85.5f;
+String name = "Harsh";
+System.out.println("Name: " + name);
+    </pre>
+  </section>
+
+  <section>
+    <h2>🔹 Control Statements</h2>
+    <pre>
+// If-Else Example
+int num = 5;
+if(num % 2 == 0)
+  System.out.println("Even");
+else
+  System.out.println("Odd");
+
+// Loop Example
+for(int i=1; i<=5; i++) {
+  System.out.println("Count: " + i);
+}
+    </pre>
+  </section>
+
+  <section>
+    <h2>⚙️ OOP Pillars in Java</h2>
+    <h3>1️⃣ Encapsulation</h3>
+    <pre>
+class Student {
+  private String name;
+  public void setName(String n) { name = n; }
+  public String getName() { return name; }
+}
+    </pre>
+    <h3>2️⃣ Inheritance</h3>
+    <pre>
+class Animal {
+  void eat() { System.out.println("Eating..."); }
+}
+class Dog extends Animal {
+  void bark() { System.out.println("Barking..."); }
+}
+class Test {
+  public static void main(String[] args) {
+    Dog d = new Dog();
+    d.eat();
+    d.bark();
+  }
+}
+    </pre>
+    <h3>3️⃣ Polymorphism</h3>
+    <pre>
+class Animal {
+  void sound() { System.out.println("Animal sound"); }
+}
+class Dog extends Animal {
+  void sound() { System.out.println("Dog barks"); }
+}
+class Test {
+  public static void main(String[] args) {
+    Animal obj = new Dog();
+    obj.sound();
+  }
+}
+    </pre>
+    <h3>4️⃣ Abstraction</h3>
+    <pre>
+abstract class Shape {
+  abstract void draw();
+}
+class Circle extends Shape {
+  void draw() { System.out.println("Drawing Circle"); }
+}
+class Test {
+  public static void main(String[] args) {
+    Shape s = new Circle();
+    s.draw();
+  }
+}
+    </pre>
+  </section>
+
+  <section>
+    <h2>📦 Arrays in Java</h2>
+    <pre>
+int[] arr = {10, 20, 30};
+for(int i : arr)
+  System.out.println(i);
+    </pre>
+  </section>
+
+  <section>
+    <h2>🧠 Exception Handling</h2>
+    <pre>
+try {
+  int a = 10 / 0;
+} catch(ArithmeticException e) {
+  System.out.println("Error: Division by zero");
+}
+    </pre>
+  </section>
+
+  <section>
+    <h2>🚀 Multithreading Example</h2>
+    <pre>
+class MyThread extends Thread {
+  public void run() {
+    System.out.println("Thread running...");
+  }
+  public static void main(String[] args) {
+    MyThread t = new MyThread();
+    t.start();
+  }
+}
+    </pre>
+  </section>
+
+  <section>
+    <h2>📂 File Handling Example</h2>
+    <pre>
+import java.io.*;
+class FileExample {
+  public static void main(String[] args) {
+    try {
+      FileWriter fw = new FileWriter("example.txt");
+      fw.write("Welcome to Java File Handling!");
+      fw.close();
+      System.out.println("File written successfully.");
+    } catch(IOException e) {
+      System.out.println("Error occurred.");
+    }
+  }
+}
+    </pre>
+  </section>
+
+  <!-- INTERACTIVE JS SIMULATIONS -->
+  <section>
+    <h2>🔢 Factorial Calculator (JS Simulation)</h2>
+    <div class="demo">
+      <input type="number" id="num" placeholder="Enter a number">
+      <br><br>
+      <button onclick="factorial()">Find Factorial</button>
+      <p id="factRes"></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>🧠 Prime Number Checker (JS Simulation)</h2>
+    <div class="demo">
+      <input type="number" id="primeNum" placeholder="Enter a number">
+      <br><br>
+      <button onclick="checkPrime()">Check Prime</button>
+      <p id="primeRes"></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>🌡 Temperature Converter</h2>
+    <div class="demo">
+      <input type="number" id="temp" placeholder="Enter °C">
+      <br><br>
+      <button onclick="convertTemp()">Convert to °F</button>
+      <p id="tempRes"></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>🔐 Random Password Generator</h2>
+    <div class="demo">
+      <input type="number" id="len" placeholder="Length (e.g. 8)">
+      <br><br>
+      <button onclick="generatePass()">Generate</button>
+      <p id="passRes"></p>
+    </div>
+  </section>
+
+  <a href="Portfolio.html" class="back-btn">⬅ Back to Portfolio</a>
+
+  <script>
+    // Factorial
+    function factorial() {
+      let n = parseInt(document.getElementById("num").value);
+      if (isNaN(n) || n < 0) {
+        document.getElementById("factRes").innerText = "⚠ Please enter a positive number!";
+        return;
+      }
+      let fact = 1;
+      for (let i = 1; i <= n; i++) fact *= i;
+      document.getElementById("factRes").innerText = `✅ Factorial of ${n} = ${fact}`;
+    }
+
+    // Prime Checker
+    function checkPrime() {
+      let n = parseInt(document.getElementById("primeNum").value);
+      if (isNaN(n) || n < 2) {
+        document.getElementById("primeRes").innerText = "⚠ Enter number greater than 1!";
+        return;
+      }
+      let isPrime = true;
+      for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) { isPrime = false; break; }
+      }
+      document.getElementById("primeRes").innerText = isPrime ? `✅ ${n} is a Prime Number` : `❌ ${n} is Not a Prime Number`;
+    }
+
+    // Temperature Converter
+    function convertTemp() {
+      let c = parseFloat(document.getElementById("temp").value);
+      if (isNaN(c)) {
+        document.getElementById("tempRes").innerText = "⚠ Enter valid temperature!";
+        return;
+      }
+      let f = (c * 9/5) + 32;
+      document.getElementById("tempRes").innerText = `✅ ${c}°C = ${f.toFixed(2)}°F`;
+    }
+
+    // Password Generator
+    function generatePass() {
+      let len = parseInt(document.getElementById("len").value);
+      if (isNaN(len) || len <= 0) {
+        document.getElementById("passRes").innerText = "⚠ Enter valid length!";
+        return;
+      }
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$!%^&*";
+      let pass = "";
+      for (let i = 0; i < len; i++) pass += chars.charAt(Math.floor(Math.random() * chars.length));
+      document.getElementById("passRes").innerText = `🔑 Generated Password: ${pass}`;
+    }
+  </script>
+</body>
+</html>

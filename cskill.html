@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C and C++ Complete Guide</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Courier New', monospace;
+    }
+
+    body {
+      background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.8);
+      width: 100%;
+      text-align: center;
+      padding: 25px;
+      font-size: 2.3rem;
+      font-weight: bold;
+      color: #00ffcc;
+      animation: slideDown 1.5s ease-in-out;
+      letter-spacing: 2px;
+    }
+
+    section {
+      background: rgba(0,0,0,0.7);
+      padding: 25px;
+      margin: 20px;
+      width: 85%;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+      animation: zoomIn 1.5s ease-in-out;
+    }
+
+    h2 {
+      color: #00ffcc;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      color: #ffcc00;
+      margin-top: 15px;
+    }
+
+    p, li {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    ul {
+      margin-left: 25px;
+    }
+
+    pre {
+      background: #111;
+      padding: 15px;
+      border-radius: 10px;
+      color: #00ffcc;
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    a.back-btn {
+      display: inline-block;
+      margin: 30px;
+      padding: 12px 25px;
+      background: #00ffcc;
+      color: black;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    a.back-btn:hover {
+      background: #00ccaa;
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>🌐 Complete C and C++ Programming Guide</header>
+
+  <!-- SECTION 1: INTRODUCTION -->
+  <section>
+    <h2>🔹 About C and C++</h2>
+    <p>
+      <strong>C</strong> is a structured programming language developed by Dennis Ritchie at Bell Labs in 1972.  
+      It focuses on procedures and is widely used for system software and embedded systems.
+      <br><br>
+      <strong>C++</strong> was developed by Bjarne Stroustrup as an extension of C, adding Object-Oriented Programming (OOP) features.
+    </p>
+  </section>
+
+  <!-- SECTION 2: FEATURES OF C -->
+  <section>
+    <h2>🔹 Features and Properties of C</h2>
+    <ul>
+      <li>Procedural Programming Language</li>
+      <li>Portability and efficiency</li>
+      <li>Low-level memory manipulation</li>
+      <li>Rich library support</li>
+      <li>Fast compilation and execution</li>
+    </ul>
+
+    <h3>Example 1: Variables and Data Types</h3>
+    <pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int age = 20;
+    float height = 5.9;
+    char grade = 'A';
+    printf("Age: %d\\nHeight: %.1f\\nGrade: %c", age, height, grade);
+    return 0;
+}
+    </pre>
+
+    <h3>Example 2: Arrays and Loops</h3>
+    <pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int marks[5] = {85, 90, 78, 92, 88};
+    int sum = 0;
+    for (int i = 0; i &lt; 5; i++) {
+        sum += marks[i];
+    }
+    printf("Average Marks = %d", sum / 5);
+    return 0;
+}
+    </pre>
+
+    <h3>Example 3: Functions and Conditional Statements</h3>
+    <pre>
+#include &lt;stdio.h&gt;
+int max(int a, int b) {
+    return (a &gt; b) ? a : b;
+}
+int main() {
+    int x = 15, y = 25;
+    printf("Greater number is: %d", max(x, y));
+    return 0;
+}
+    </pre>
+  </section>
+
+  <!-- SECTION 3: FEATURES OF C++ -->
+  <section>
+    <h2>🔹 Features of C++ (Object-Oriented Programming)</h2>
+    <p>
+      C++ extends C by introducing Object-Oriented Programming (OOP).  
+      The <strong>four pillars of OOP</strong> are:
+    </p>
+    <ol>
+      <li><strong>Encapsulation</strong></li>
+      <li><strong>Inheritance</strong></li>
+      <li><strong>Polymorphism</strong></li>
+      <li><strong>Abstraction</strong></li>
+    </ol>
+  </section>
+
+  <!-- SECTION 4: ENCAPSULATION -->
+  <section>
+    <h2>1️⃣ Encapsulation</h2>
+    <p>Encapsulation is the concept of wrapping data and methods into a single unit called a class. It helps protect data from unauthorized access.</p>
+    <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Student {
+  private:
+    int rollNo;
+    string name;
+  public:
+    void setData(int r, string n) {
+        rollNo = r;
+        name = n;
+    }
+    void display() {
+        cout &lt;&lt; "Roll No: " &lt;&lt; rollNo &lt;&lt; ", Name: " &lt;&lt; name &lt;&lt; endl;
+    }
+};
+
+int main() {
+    Student s;
+    s.setData(101, "Harsh");
+    s.display();
+    return 0;
+}
+    </pre>
+  </section>
+
+  <!-- SECTION 5: INHERITANCE -->
+  <section>
+    <h2>2️⃣ Inheritance</h2>
+    <p>Inheritance allows one class to acquire properties and behaviors of another class.</p>
+    <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Person {
+  public:
+    string name;
+    int age;
+    void displayPerson() {
+        cout &lt;&lt; "Name: " &lt;&lt; name &lt;&lt; ", Age: " &lt;&lt; age &lt;&lt; endl;
+    }
+};
+
+class Student : public Person {
+  public:
+    int marks;
+    void displayStudent() {
+        displayPerson();
+        cout &lt;&lt; "Marks: " &lt;&lt; marks &lt;&lt; endl;
+    }
+};
+
+int main() {
+    Student s1;
+    s1.name = "Aarav";
+    s1.age = 20;
+    s1.marks = 95;
+    s1.displayStudent();
+    return 0;
+}
+    </pre>
+  </section>
+
+  <!-- SECTION 6: POLYMORPHISM -->
+  <section>
+    <h2>3️⃣ Polymorphism</h2>
+    <p>Polymorphism allows the same function to behave differently based on the object that calls it.</p>
+    <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Shape {
+  public:
+    virtual void draw() {
+        cout &lt;&lt; "Drawing a shape" &lt;&lt; endl;
+    }
+};
+
+class Circle : public Shape {
+  public:
+    void draw() override {
+        cout &lt;&lt; "Drawing a Circle" &lt;&lt; endl;
+    }
+};
+
+class Rectangle : public Shape {
+  public:
+    void draw() override {
+        cout &lt;&lt; "Drawing a Rectangle" &lt;&lt; endl;
+    }
+};
+
+int main() {
+    Shape *s1;
+    Circle c;
+    Rectangle r;
+
+    s1 = &c;
+    s1-&gt;draw();
+    s1 = &r;
+    s1-&gt;draw();
+    return 0;
+}
+    </pre>
+  </section>
+
+  <!-- SECTION 7: ABSTRACTION -->
+  <section>
+    <h2>4️⃣ Abstraction</h2>
+    <p>Abstraction hides internal details and shows only essential features to the user.</p>
+    <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Vehicle {
+  public:
+    virtual void start() = 0; // Pure virtual function
+};
+
+class Car : public Vehicle {
+  public:
+    void start() override {
+        cout &lt;&lt; "Car started with key ignition" &lt;&lt; endl;
+    }
+};
+
+int main() {
+    Car c1;
+    c1.start();
+    return 0;
+}
+    </pre>
+  </section>
+
+  <!-- SECTION 8: CONCLUSION -->
+  <section>
+    <h2>✅ Summary</h2>
+    <p>
+      C is a powerful foundation for programming and system development.  
+      C++ builds on it, providing OOP principles that allow code reusability, scalability, and real-world modeling.
+    </p>
+  </section>
+
+  <a href="Portfolio.html" class="back-btn">⬅ Back to Portfolio</a>
+</body>
+</html>

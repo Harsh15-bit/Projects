@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberpunk Portfolio Login</title>
+  <link rel="icon" href="icon.jpg" type="image/jpeg">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Courier New', monospace;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+      color: #0ff;
+    }
+
+    /* Cyberpunk Background */
+    body::after {
+      content:"";
+      position:absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      background: url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80") 
+        no-repeat center center/cover;
+      opacity:0.25;
+      z-index:-1;
+      filter:brightness(0.7) contrast(1.2) saturate(1.5);
+    }
+
+    .login-container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 30px #0ff, 0 0 60px #f0f;
+      text-align: center;
+      width: 320px;
+      animation: neonPulse 2s infinite alternate;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff, 0 0 20px #f0f;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background: black;
+      border: 2px solid #0ff;
+      border-radius: 8px;
+      color: #0ff;
+      font-size: 1rem;
+      outline: none;
+      box-shadow: 0 0 10px #0ff;
+    }
+
+    input:focus {
+      border-color: #f0f;
+      box-shadow: 0 0 15px #f0f;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(45deg, #0ff, #f0f);
+      color: black;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px #0ff, 0 0 30px #f0f;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #f0f, 0 0 50px #0ff;
+    }
+
+    /* Neon pulse animation */
+    @keyframes neonPulse {
+      from { box-shadow: 0 0 20px #0ff, 0 0 40px #f0f; }
+      to { box-shadow: 0 0 40px #f0f, 0 0 80px #0ff; }
+    }
+
+    /* Lightning effect on hover */
+    .login-container:hover {
+      background: rgba(0, 0, 0, 0.9);
+      box-shadow: 0 0 50px #ff0, 0 0 100px #f0f, 0 0 150px #0ff;
+    }
+
+    .hint {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #ff0;
+      text-shadow: 0 0 10px #ff0;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Login Page</h1>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <div class="hint">
+      Hint → Username: <span id="showUser"></span><br>
+      Password: <span id="showPass"></span>
+    </div>
+  </div>
+
+  <script>
+    // Generate random username & password
+    function generateRandomCredentials() {
+      const users = ["NeoShadow", "CyberWolf", "GlitchX", "DataGhost", "PixelRider"];
+      const pass = Math.random().toString(36).slice(2, 8); // random 6 char password
+      const username = users[Math.floor(Math.random() * users.length)];
+      return { username, password: pass };
+    }
+
+    const creds = generateRandomCredentials();
+    document.getElementById("showUser").textContent = creds.username;
+    document.getElementById("showPass").textContent = creds.password;
+
+    document.getElementById("loginForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const u = document.getElementById("username").value;
+      const p = document.getElementById("password").value;
+      if(u === creds.username && p === creds.password){
+        alert("Access Granted! Welcome to the portfolio 🚀");
+        // Redirect to portfolio page
+        window.location.href = "Portfolio.html"; 
+      } else {
+        alert("Access Denied ❌ Wrong credentials");
+      }
+    });
+  </script>
+</body>
+</html>

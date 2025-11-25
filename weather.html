@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: url("https://images.unsplash.com/photo-1501973801540-537f08ccae7b?auto=format&fit=crop&w=1600&q=80") 
+        no-repeat center center/cover;
+      color: #fff;
+      animation: fadeIn 1.5s ease;
+      position: relative;
+      z-index: 1;
+    }
+    body::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: -1;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .container {
+      background: rgba(255,255,255,0.1);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      animation: slideUp 1s ease;
+      width: 350px;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    h1 {
+      color: #f39c12;
+      margin-bottom: 20px;
+    }
+    input {
+      padding: 10px;
+      width: 80%;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 15px;
+      background: #f39c12;
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+    button:hover {
+      background: #d35400;
+      transform: scale(1.05);
+    }
+    .weather-info {
+      margin-top: 20px;
+      font-size: 18px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+    .weather-info.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .back-btn {
+      display: block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #f39c12;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .back-btn:hover {
+      background: #d35400;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌍 Weather App</h1>
+    <input type="text" id="city" placeholder="Enter city (e.g. Meerut,IN)">
+    <br>
+    <button onclick="getWeather()">Get Weather</button>
+    <div class="weather-info" id="weather"></div>
+    <a href="Portfolio.html" class="back-btn">⬅ Back to Portfolio</a>
+  </div>
+
+  <script>
+    async function getWeather() {
+      const city = document.getElementById("city").value.trim();
+      const weatherDiv = document.getElementById("weather");
+
+      if (!city) {
+        weatherDiv.innerHTML = "⚠ Please enter a city name!";
+        weatherDiv.classList.add("show");
+        return;
+      }
+
+      const apiKey = "60265ab1aaf907a5d6af78ea4c60b966"; // My API key
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("City not found");
+        const data = await response.json();
+
+        weatherDiv.innerHTML = `
+          <h3>${data.name}, ${data.sys.country}</h3>
+          🌡 Temperature: ${data.main.temp}°C <br>
+          💧 Humidity: ${data.main.humidity}% <br>
+          🌤 Weather: ${data.weather[0].description}
+        `;
+        weatherDiv.classList.add("show");
+      } catch (error) {
+        weatherDiv.innerHTML = "❌ City not found! Try 'City,CountryCode'";
+        weatherDiv.classList.add("show");
+      }
+    }
+  </script>
+</body>
+</html>

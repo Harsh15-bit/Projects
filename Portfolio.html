@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harsh Portfolio</title>
+  <!-- Favicon / Logo Icon -->
+  <link rel="icon" href="icon.jpg" type="image/jpeg">
+  <!-- Font Awesome for Social Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* ---- Body + Background ---- */
+    body {
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      background: url('cover.jpeg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* ---- Header ---- */
+    header {
+      background: rgba(51,51,51,0.85); /* slight transparency so background is visible */
+      color: #ffffff;
+      padding: 15px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: slideDown 1s ease-out;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    header nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    header nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: #f39c12;
+      transition: width 0.3s;
+    }
+    header nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ---- Home Typing Animation ---- */
+    #home {
+      padding: 120px 20px;
+      text-align: center;
+      color: #fff;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+      text-shadow: 0 0 8px rgba(0,0,0,0.6);
+    }
+    #home.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #home h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #fff;
+      width: 0;
+      animation: typing 3s steps(25) forwards, blink 0.7s step-end infinite alternate;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+    #home p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    /* ---- Scroll Fade-In Animation ---- */
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    section h2 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #333;
+      text-shadow: 0 0 6px rgba(255,255,255,0.8);
+    }
+
+    /* ---- About ---- */
+    #about {
+      background: rgba(255,255,255,0.85);
+      border-radius: 12px;
+      margin: 20px auto;
+      max-width: 900px;
+      padding: 20px;
+    }
+    .about-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .about-text {
+      flex: 1;
+      min-width: 250px;
+      animation: fadeInLeft 1.5s ease;
+    }
+    .about-text p {
+      font-size: 1.1rem;
+      color: #555;
+      text-align: justify;
+    }
+    .about-img {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      animation: fadeInRight 1.5s ease;
+    }
+    .about-img img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #f39c12;
+    }
+    @keyframes fadeInLeft {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes fadeInRight {
+      from { transform: translateX(100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* ---- Skills ---- */
+    #skills {
+      background: rgba(255,255,255,0.85);
+      border-radius: 12px;
+      margin: 20px auto;
+      max-width: 900px;
+      padding: 20px;
+    }
+    #skills ul {
+      list-style: none;
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    #skills li {
+      background: #f39c12;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    #skills li:hover {
+      transform: scale(1.1);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+
+    /* ---- Achievements ---- */
+    #achievements {
+      background: rgba(255,255,255,0.85);
+      border-radius: 12px;
+      margin: 20px auto;
+      max-width: 900px;
+      padding: 20px;
+    }
+    .achievements-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .achievement {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .achievement:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+    .achievement h3 {
+      color: #f39c12;
+      margin-bottom: 10px;
+    }
+    .achievement a {
+      display: inline-block;
+      background-color: #007bff;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+    .achievement a:hover {
+      background-color: #0056b3;
+    }
+    #achievements {
+      text-align: center;
+      padding: 40px;
+      font-family: "Poppins", sans-serif;
+    }
+    .achievements-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+    .achievement {
+      background: #1e1e2f;
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .achievement:hover {
+      transform: translateY(-5px);
+    }
+    .view-btn {
+      display: inline-block;
+      margin-top: 12px;
+      background: #007bff;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .view-btn:hover {
+      background: #0056b3;
+    }
+
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      animation: fadeIn 0.4s ease;
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 60%;
+      max-width: 700px;
+      border-radius: 15px;
+      animation: zoomIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .close {
+      position: absolute;
+      top: 25px;
+      right: 45px;
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close:hover {
+      color: red;
+    }
+
+    /* ---- Blog ---- */
+    .blog-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .blog-card {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease;
+      text-align: left;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+    .blog-card h3 {
+      margin-bottom: 10px;
+      color: #f39c12;
+    }
+    .blog-card a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+      border-bottom: 2px solid #f39c12;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+    .blog-card a:hover {
+      color: #f39c12;
+    }
+
+    /* ---- Projects ---- */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .project {
+      background: #eee;
+      padding: 20px;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    /* ---- Contact ---- */
+    #contact {
+      background: rgba(255,255,255,0.85);
+      border-radius: 12px;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 900px;
+    }
+    #contact p {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .social-links {
+      margin-top: 15px;
+    }
+    .social-icon {
+      font-size: 40px;
+      margin: 0 15px;
+      transition: transform 0.3s ease;
+    }
+    .social-icon.instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .social-icon.whatsapp {
+      color: #25D366;
+    }
+    .social-icon:hover {
+      transform: rotate(15deg) scale(1.3);
+    }
+
+    footer {
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 30px 10px;
+      margin-top: 40px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    footer h3 {
+      margin-bottom: 15px;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .footer-projects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .footer-projects a {
+      text-decoration: none;
+      color: #ffcc00;
+      background: #222;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+
+    .footer-projects a:hover {
+      background: #ffcc00;
+      color: #111;
+    }
+
+    footer p {
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    
+    /* ---- Attractive Projects Section ---- */
+    #attractive-projects {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      margin: 40px auto;
+      max-width: 1000px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .project-title {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 25px;
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .dashboard-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 30px;
+      width: 100%;
+    }
+
+    /* Left Dashboard */
+    .dashboard {
+      flex: 1;
+      min-width: 250px;
+      background: #1e1e2f;
+      color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      transform: translateX(-40px);
+      animation: slideInLeft 1.5s ease forwards;
+    }
+
+    .dashboard h3 {
+      text-align: center;
+      color: #f39c12;
+      margin-bottom: 15px;
+    }
+
+    .dashboard table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .dashboard td {
+      padding: 12px;
+      text-align: center;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .dashboard a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .dashboard td:hover {
+      background: #f39c12;
+      transform: scale(1.05);
+    }
+
+    /* Right Side 3D Preview Area */
+    .preview-area {
+      flex: 2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .card-preview {
+      background: linear-gradient(145deg, #ffffff, #e6e6e6);
+      border-radius: 15px;
+      padding: 25px;
+      width: 260px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+    }
+
+    .card-preview:hover {
+      transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    .card-preview h3 {
+      color: #f39c12;
+      margin-bottom: 10px;
+    }
+
+    .card-preview p {
+      color: #333;
+    }
+
+    /* Animations */
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#blog">Blog</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h1>Hello, I'm Harsh Bhosale👋</h1>
+    <p>Aspiring Web Developer | Designer | Programmer</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <div class="about-text">
+        <p>
+          I am a passionate web developer who loves building clean, simple, and responsive websites. 
+          I enjoy solving problems and learning new technologies to create better user experiences.
+        </p>
+      </div>
+      <div class="about-img">
+        <img src="photo.jpg" alt="My Photo">
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>My Skills</h2>
+    <ul>
+      <li><a href="htmlskill.html" target="_blank">HTML</a></li>
+      <li><a href="cssskill.html" target="_blank">CSS</a></li>
+      <li><a href="javascriptskill.html" target="_blank">JavaScript</a></li>
+      <li><a href="cskill.html" target="_blank">C/C++</a></li>
+      <li><a href="javaskill.html" target="_blank">Java</a></li>
+      <li><a href="pythonskill.html" target="_blank">Python</a></li>
+    </ul>
+  </section>
+
+  <section id="achievements">
+  <h2>Achievements & Certificates</h2>
+  <div class="achievements-container">
+
+    <div class="achievement">
+      <h3>Investor Certification Examination</h3>
+      <p>Successfully completed the Investor Certification Examination, gaining insights into stock market fundamentals and investment strategies.</p>
+      <a href="#" class="view-btn" data-img="Certification/Investors_Certification.jpg">🖼️ View Certificate</a>
+    </div>
+    </div>
+
+    <div class="achievement">
+      <h3>Commodity Derivatives Market</h3>
+      <p>Certified in the Commodity Derivatives Market with understanding of trading mechanisms, hedging techniques, and regulatory framework.</p>
+      <a href="#" class="view-btn" data-img="Certification/commodity_Derivative.jpg">🖼️ View Certificate</a>
+    </div>
+
+    <div class="achievement">
+      <h3>Generative AI Workshop</h3>
+      <p>Attended a hands-on workshop on Generative Artificial Intelligence, exploring prompt engineering and AI model applications.</p>
+      <a href="#" class="view-btn" data-img="Certification/Generative_AI.jpg">🖼️ View Certificate</a>
+    </div>
+
+    <div class="achievement">
+      <h3>Industrial Visit at Ducat</h3>
+      <p>Participated in an educational industrial visit to Ducat Institute, learning about real-world software development workflows and tools.</p>
+      <a href="#" class="view-btn" data-img="Certification/Industrial_visit.jpg">🖼️ View Certificate</a>
+    </div>
+
+    <div class="achievement">
+      <h3>PowerBi and Decision Driven</h3>
+      <p>Attended a Power BI and Decision-Driven Analytics workshop conducted at Neelkanth Group of Institutions, gaining hands-on experience with data visualization and business intelligence tools.</p>
+      <a href="#" class="view-btn" data-img="Certification/PowerBi.jpg">🖼️ View Certificate</a>
+    </div>
+
+  </div>
+   <!-- Popup modal for image -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+</section>
+
+  <section id="blog">
+    <h2>Blog / Articles</h2>
+    <div class="blog-container">
+      <div class="blog-card">
+        <h3>Getting Started with Web Development</h3>
+        <p>A beginner’s guide to HTML, CSS, and JavaScript to build your first website.</p>
+        <div class="more-content" style="display: none; text-align: justify;">
+          <p>Web development is the process of creating websites and web applications. The three main building blocks are:</p>
+          <ul>
+            <li><b>HTML</b> – Defines the structure of the webpage.</li>
+            <li><b>CSS</b> – Styles the webpage.</li>
+            <li><b>JavaScript</b> – Adds interactivity.</li>
+          </ul>
+          <p>
+            As a beginner, start with HTML to understand page layouts, then add CSS for styling, 
+            and finally learn JavaScript to make your site interactive. Practice by building small projects 
+            like a portfolio, calculator, or to-do list.
+          </p>
+        </div>
+        <a onclick="toggleContent(this)">Read More</a>
+      </div>
+      <div class="blog-card">
+        <h3>Top 10 CSS Tricks</h3>
+        <p>Some handy CSS tips to make your website design look clean and professional.</p>
+        <div class="more-content" style="display: none; text-align: justify;">
+          <ol>
+            <li><b>Use Flexbox/Grid</b> – For clean, responsive layouts.</li>
+            <li><b>Hover Effects</b> – Make buttons and links interactive.</li>
+            <li><b>Box Shadows</b> – Add depth to cards and buttons.</li>
+            <li><b>Border Radius</b> – Create smooth, rounded corners.</li>
+            <li><b>Transitions</b> – Animate changes like hover smoothly.</li>
+            <li><b>Custom Fonts</b> – Improve typography with Google Fonts.</li>
+            <li><b>Position Sticky</b> – Keep elements fixed while scrolling.</li>
+            <li><b>Media Queries</b> – Make your site mobile-friendly.</li>
+            <li><b>Z-Index</b> – Control element stacking order.</li>
+            <li><b>CSS Variables</b> – Reuse colors and styles efficiently.</li>
+          </ol>
+        </div>
+        <a onclick="toggleContent(this)">Read More</a>
+      </div>
+      <div class="blog-card">
+        <h3>Why Learn Data Structures?</h3>
+        <p>Understanding the importance of data structures in programming.</p>
+        <a href="blog3.html" target="_blank">Read More</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3><a href="simpleportfolio.html" target="_blank">Portfolio Website</a></h3>
+        <p>A simple portfolio made with HTML and CSS.</p>
+      </div>
+      <div class="project">
+        <h3><a href="calculator.html" target="_blank">Calculator</a></h3>        
+        <p>A functional calculator using JavaScript.</p>
+      </div>
+      <div class="project">
+        <h3><a href="weather.html" target="_blank">Weather App</a></h3>
+        <p>Fetches live weather using an API.</p>
+      </div>
+      <div class="project">
+        <h3><a href="Netflix/signup.html" target="_blank">Netflix Clone Page</a></h3>
+        <p>A responsive Netflix clone built using HTML CSS and JS.</p>
+      </div>
+      <div class="project">
+        <h3><a href="E_commerce/Main.html" target="_blank">E_commerce 1</a></h3>
+        <p>An e-commerce webpage built to showcase basic store layout and design skills.</p>
+      </div>
+      <div class="project">
+        <h3><a href="Ecommerce2/index3.html" target="_blank">Ecommerce 2</a></h3>
+        <p>A static e-commerce project focusing on clean layout and product display using core web technologies.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="attractive-projects">
+  <h2 class="project-title">🎯 Attractive Projects</h2>
+  <div class="dashboard-container">
+    <!-- Left Side Table Dashboard -->
+    <div class="dashboard">
+      <h3>📁 Dashboard</h3>
+      <table>
+        <tr>
+          <td><a href="3D_projects/cards1/index.html" target="_blank">🟢 Cards 1</a></td>
+        </tr>
+        <tr>
+          <td><a href="3D_projects/cards2/index1.html" target="_blank">🟣 Cards 2</a></td>
+        </tr>
+        <tr>
+          <td><a href="Netflix/signup.html" target="_blank">🔴 Netflix Clone Page</a></td>
+        </tr>
+        <tr>
+          <td><a href="Ecommerce2/index3.html" target="_blank">🟡 Ecommerce 2 Website</a></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Right Side Animated Display -->
+    <div class="preview-area">
+      <div class="card-preview card1">
+        <h3>3D Project - Cards 1</h3>
+        <p>Creative UI cards with modern 3D animation.</p>
+        <p>The Dark Rider: A crimson-caped warrior stands against a fiery, moonlit sky. The lighting creates an epic, shadowed silhouette that embodies power and mystery.</p> 
+        <p>Force Mage: A mystical figure cloaked in blue energy, summoning lightning with an outstretched hand. The cloudy backdrop and electric textures give this card a sense of raw magical force.</p>
+      </div>
+      <div class="card-preview card2">
+        <h3>3D Project - Cards 2</h3>
+        <p>Interactive 3D card effects with smooth transitions.</p>
+        <p>Each card features vibrant color contrast (red and blue), clean typography, and price + call-to-action (“Buy Now”) buttons.</p>
+        <p>The product illustrations (Nike X Off-White sneakers) use flat vector art with realistic depth and shadows, creating a balanced mix of minimalism and bold visual impact.</p>
+      </div>
+      <div class="card-preview netflix">
+        <h3>Netflix Clone Page</h3>
+        <p>A responsive Netflix clone built using pure HTML CSS and JS.</p>
+        <p>This page recreates the iconic Netflix Page interface — featuring a dark theme, red highlights, and a clean, modern design.</p>
+      </div>
+      <div class="card-preview ecommerce">
+        <h3>E-Commerce 2 Website</h3>
+        <p>A static e-commerce project focusing on clean layout and product display using core web technologies.</p>
+        <p>This project presents a simple online shopping layout with product sections, a clean design, and a static interface created for learning and practice purposes.</p>
+      </div>
+
+    </div>
+  </div>
+  </section>
+
+  <section id="contact" style="text-align:center; padding:40px; background:white; border-radius:12px; margin:30px auto; width:80%; box-shadow:0 0 15px rgba(0,0,0,0.2);">
+  <h2 style="color:black; margin-bottom:15px;">📩 Contact Me</h2>
+  
+  <p style="font-size:1.2rem; color:black;">
+    Email: 
+    <a href="mailto:hbhosale135@gmail.com" 
+       style="color:black; text-decoration:underline; text-decoration-color:blue; font-weight:bold;">
+      hbhosale135@gmail.com
+    </a>
+  </p>
+  
+  <p style="font-size:1.2rem; color:black;">📞 Phone: +91 7088854575</p>
+
+  <div class="social-links" style="margin-top:15px;">
+    <a href="https://www.instagram.com/ha_r_sh15" 
+       target="_blank" 
+       class="social-icon instagram"
+       style="color:#E4405F; font-size:2rem; margin:0 15px; text-decoration:none; transition:0.3s;">
+       <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://wa.me/917088854575" 
+       target="_blank" 
+       class="social-icon whatsapp"
+       style="color:#25D366; font-size:2rem; margin:0 15px; text-decoration:none; transition:0.3s;">
+       <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+</section>
+
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <footer>
+    <h3>My Project Links</h3>
+  <div class="footer-projects">
+    <a href="simpleportfolio.html" target="_blank">Portfolio Website</a>
+    <a href="calculator.html" target="_blank">Calculator</a>
+    <a href="weather.html" target="_blank">Weather App</a>
+    <a href="Netflix/signup.html" target="_blank">Netflix Clone Page</a>
+    <a href="E_commerce/Main.html" target="_blank">E-commerce 1</a>
+    <a href="Ecommerce2/index3.html" target="_blank">E-commerce 2</a>
+    <a href="3D_projects/cards1/index.html" target="_blank">Cards 1</a>
+    <a href="3D_projects/cards2/index1.html" target="_blank">Cards 2</a>
+    <a href="Movie_Rating/Index2.html" target="_blank">Movie App</a>
+    <a href="slider_3d/index5.html" target="_blank">3d Card Rotation</a>
+    <a href="slider_1/index6.html" target="_blank">3d slider</a>
+    <a href="Modern_website/index7.html" target="_blank">Modern Website</a>
+    <a href="auto_slider/index8.html" target="_blank">Auto Slider</a>
+    <a href="3d_Rotate/index.html" target="_blank">3D Rotate</a>
+    <a href="ink_animation/index9.html" target="_blank">Animation</a>
+    <a href="flex_css/index10.html" target="_blank">Flex CSS</a>
+    <a href="Canvas/index.html" target="_blank">Canvas</a>
+    <a href="Responsive_3d_Cards/index.html" target="_blank">Cards 3</a>
+    <a href="Profile_card/index.html" target="_blank">Profile card</a>
+    <a href="Credit_card/index.html" target="_blank">Credit Card</a>
+    <a href="GSAP_cards/index.html" target="_blank">GSAP Carousel Cards</a>
+    <a href="Flight_Booking_app/index.html" target="_blank">Flight Booking App</a>
+    <a href="Hospital Website/index.html" target="_blank">Hospital Website</a>
+    <a href="Music_Dashboard/index.html" target="_blank">Music Dashboard</a>
+    <a href="Parallax_Website/index.html" target="_blank">Parallax Website</a>
+    <a href="Headphone_landing_page/index.html" target="_blank">Responsive Headphone Page</a>
+    <a href="Hotel_Website/index.html" target="_blank">Hotel Website</a>
+    <a href="Electronics/index.html" target="_blank">Electronics Hub</a>
+    <a href="Fly_luxury/index.html" target="_blank">Fly Luxury</a>
+    <a href="Premium_car/index.html" target="_blank">Premium Car sales</a>
+    <a href="Forge_Fit/index.html" target="_blank">ForgeFit Gym</a>
+    <a href="Travel_Website/index.html" target="_blank">Travel Website</a>
+    <a href="GSAP_2/index.html" target="_blank">GSAP 2</a>
+    <a href="Simple_website/index.html" target="_blank">Simple Website</a>
+    <a href="image_slider/index.html" target="_blank">Image Slider</a>
+    <a href="image_slider2/index.html" target="_blank">Image Slider 2</a>
+    <a href="3D_cards/index.html" target="_blank">Cards 4</a>
+    <a href="Mera_Bharat/index.html" target="_blank">Mera Bharat</a>
+    <a href="Sun_down/index.html" target="_blank">Sundown Studio</a>
+    <a href="Cyber_Fiction/index.html" target="_blank">Cyber Fiction</a>
+    <a href="Estate_Website/index.html" target="_blank">Estate Website</a>
+    <a href="Fanta_website/index.html" target="_blank">Fanta Website</a>
+    <a href="Gaming_Website/index.html" target="_blank">Gaming Website</a>
+    <a href="soda_website/index.html" target="_blank">Soda Website</a>
+    <a href="Bee_Animation/index.html" target="_blank">Bee Animation</a>
+    <a href="Fia/index.html" target="_blank">Fia</a>
+  </div>
+    <p>&copy; 2025 Harsh Portfolio | All Rights Reserved</p>
+    <a href="https://github.com/Harsh15-bit/Harsh-Projects" target="_blank" style="text-decoration:none; color: whitesmoke;">
+      <svg height="24" width="24" viewBox="0 0 16 16" style="vertical-align:middle; margin-right:5px;">
+            <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 
+            2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 
+            0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+            -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 
+            2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 
+            0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 
+            0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 
+            1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 
+            1.1.16 1.92.08 2.12.51.56.82 1.27.82 
+            2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 
+            1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 
+            8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+      </svg>Visit My GitHub Projects</a>
+  </footer>
+
+  <!-- JS Animations -->
+  <script>
+  // Toggle Read More / Read Less
+  function toggleContent(link) {
+    let content = link.previousElementSibling;
+    if (content.style.display === "none") {
+      content.style.display = "block";
+      link.textContent = "Read Less";
+    } else {
+      content.style.display = "none";
+      link.textContent = "Read More";
+    }
+  }
+
+  // Scroll Animation for all sections including "Attractive Projects"
+  const sections = document.querySelectorAll("section");
+  window.addEventListener("scroll", () => {
+    const triggerBottom = window.innerHeight * 0.85;
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < triggerBottom) {
+        section.classList.add("show");
+      }
+    });
+  });
+
+  // Show home section on load
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("home").classList.add("show");
+  });
+
+  // Handle modal opening
+  document.querySelectorAll(".view-btn").forEach(btn => {
+    btn.addEventListener("click", function(e) {
+      e.preventDefault();
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      modal.style.display = "block";
+      modalImg.src = this.getAttribute("data-img");
+    });
+  });
+
+  // Handle closing the modal
+  const modal = document.getElementById("imageModal");
+  const closeBtn = document.querySelector(".close");
+  closeBtn.onclick = function() {
+    modal.style.display = "none";
+  };
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+
+</body>
+</html>

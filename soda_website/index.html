@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soda Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+        </div>
+        <nav>
+            <a href="">Home</a>
+            <a href="">Info</a>
+            <a href="">Contact</a>
+        </nav>
+    </header>
+    <!-- slider -->
+    <div class="carousel">
+        <div class="list">
+            <div class="item active" 
+            style="
+            --img-src: url('images/item1.png');
+            --bg-color: #428372;
+            --title: 'Lemon'
+            ">
+                <div class="content">
+                    <div class="image"></div>
+                    <div class="info">
+                        <div class="title">
+                            Lemon-flavored Soda
+                        </div>
+                        <div class="category">
+                            Fruit Soda
+                        </div>
+                        <div class="des">
+                            Our lemon-flavored soda brings a refreshing burst of citrus with every sip. Made from real lemon extracts, it delivers the perfect balance of tanginess and sweetness. Enjoy its crisp, sparkling taste that lifts your mood, keeps you energized, and leaves a long-lasting zesty aroma. A perfect drink for sunny days, parties, and anytime you want a refreshing twist!
+                        </div>
+                        <a href="">
+                            See More 
+                            <span>&#8594</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="item" 
+            style="
+            --img-src: url('images/item2.png');
+            --bg-color: #EEAA19;
+            --title: 'Orange'
+            ">
+                <div class="content">
+                    <div class="image"></div>
+                    <div class="info">
+                        <div class="title">
+                            Orange-flavored Soda
+                        </div>
+                        <div class="category">
+                            Fruit Soda
+                        </div>
+                        <div class="des">
+                            Our orange-flavored soda bursts with the vibrant taste of juicy, sun-ripened oranges. With its bright aroma and naturally sweet citrus notes, this drink offers a refreshing sparkle that energizes every moment. Enjoy a smooth, bubbly experience that perfectly captures the essence of fresh oranges — ideal for parties, picnics, or anytime you crave a lively citrus refreshment.
+                        </div>
+                        <a href="">
+                            See More 
+                            <span>&#8594</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="item" 
+            style="
+            --img-src: url('images/item3.png');
+            --bg-color: #e86c3f;
+            --title: 'Apple'
+            ">
+                <div class="content">
+                    <div class="image"></div>
+                    <div class="info">
+                        <div class="title">
+                            Apple-flavored Soda
+                        </div>
+                        <div class="category">
+                            Fruit Soda
+                        </div>
+                        <div class="des">
+                            Our apple-flavored soda delivers a crisp and refreshing taste inspired by freshly picked apples. With its smooth sweetness and gentle fizz, every sip offers a perfect balance of flavor and sparkle. Enjoy the natural fruity aroma and bright, uplifting taste — a delicious choice for relaxing moments, celebrations, or whenever you want a cool and refreshing apple twist.
+                        </div>
+                        <a href="">
+                            See More 
+                            <span>&#8594</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <ul class="dots">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

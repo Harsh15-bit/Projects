@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Python Tutorial</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      color: #fff;
+      background: url("https://wallpapercave.com/wp/wp6605990.jpg") no-repeat center center/cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeInDown 1.5s ease;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #ffd43b;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #eee;
+    }
+
+    section {
+      max-width: 950px;
+      margin: 20px auto;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+      animation: fadeInUp 1.5s ease;
+    }
+
+    section h2 {
+      color: #4cafef;
+      margin-bottom: 10px;
+    }
+
+    section p, section li {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    code {
+      display: block;
+      background: rgba(255,255,255,0.1);
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      font-family: monospace;
+      color: #ffd43b;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin: 30px auto;
+      padding: 12px 20px;
+      background: #ffd43b;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #ffae00;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Python Programming Tutorial</h1>
+    <p>Learn the powerful, easy, and versatile language that powers the modern world.</p>
+  </header>
+
+  <section>
+    <h2>About Python</h2>
+    <p>
+      Python is a high-level, interpreted programming language created by <b>Guido van Rossum</b> in 1991.
+      It emphasizes readability, simplicity, and productivity. It is widely used in web development, 
+      artificial intelligence, machine learning, data analysis, and automation.
+    </p>
+  </section>
+
+  <section>
+    <h2>History of Python</h2>
+    <ul>
+      <li><b>1989:</b> Python was first conceived by Guido van Rossum.</li>
+      <li><b>1991:</b> The first version (Python 0.9.0) was released.</li>
+      <li><b>2000:</b> Python 2.0 introduced new features like list comprehensions.</li>
+      <li><b>2008:</b> Python 3.0 was released with major improvements and better Unicode support.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Python File Types</h2>
+    <ul>
+      <li><b>.py</b> → Regular Python source file</li>
+      <li><b>.pyc</b> → Compiled Python file (bytecode)</li>
+      <li><b>.pyo</b> → Optimized Python file (generated using -O flag)</li>
+      <li><b>.ipynb</b> → Jupyter Notebook file (used for data science)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Basic Syntax</h2>
+    <p>Python uses indentation (spaces) to define code blocks instead of curly braces.</p>
+    <code>
+      # Example<br>
+      if True:<br>
+      &nbsp;&nbsp;print("Hello, Python!")<br>
+      else:<br>
+      &nbsp;&nbsp;print("Goodbye!")
+    </code>
+  </section>
+
+  <section>
+    <h2>Variables and Data Types</h2>
+    <ul>
+      <li>int → Integer numbers</li>
+      <li>float → Decimal numbers</li>
+      <li>str → Strings</li>
+      <li>bool → True/False values</li>
+      <li>list, tuple, set, dict → Collections</li>
+    </ul>
+    <code>
+      x = 10<br>
+      y = 3.5<br>
+      name = "Alice"<br>
+      print(type(y))
+    </code>
+  </section>
+
+  <section>
+    <h2>Control Statements</h2>
+    <p>Python provides conditional and looping statements to control the flow of programs.</p>
+    <code>
+      # If-Else<br>
+      age = 18<br>
+      if age >= 18:<br>
+      &nbsp;&nbsp;print("You are an adult.")<br>
+      else:<br>
+      &nbsp;&nbsp;print("You are a minor.")<br><br>
+
+      # Loop<br>
+      for i in range(5):<br>
+      &nbsp;&nbsp;print("Number:", i)
+    </code>
+  </section>
+
+  <section>
+    <h2>Functions</h2>
+    <p>Functions help organize code into reusable blocks.</p>
+    <code>
+      def greet(name):<br>
+      &nbsp;&nbsp;return f"Hello, {name}!"<br><br>
+      print(greet("Harsh"))
+    </code>
+  </section>
+
+  <section>
+    <h2>Data Structures</h2>
+    <ul>
+      <li><b>List:</b> Ordered and mutable → [1, 2, 3]</li>
+      <li><b>Tuple:</b> Ordered and immutable → (1, 2, 3)</li>
+      <li><b>Set:</b> Unordered, unique elements → {1, 2, 3}</li>
+      <li><b>Dictionary:</b> Key-value pairs → {"name":"Alice", "age":25}</li>
+    </ul>
+    <code>
+      fruits = ["apple", "banana", "cherry"]<br>
+      for fruit in fruits:<br>
+      &nbsp;&nbsp;print(fruit)
+    </code>
+  </section>
+
+  <section>
+    <h2>File Handling</h2>
+    <p>Python makes it easy to read and write files.</p>
+    <code>
+      # Writing to a file<br>
+      f = open("data.txt", "w")<br>
+      f.write("Hello, Python File!")<br>
+      f.close()<br><br>
+
+      # Reading from a file<br>
+      f = open("data.txt", "r")<br>
+      print(f.read())<br>
+      f.close()
+    </code>
+  </section>
+
+  <section>
+    <h2>Sample Program</h2>
+    <p>Example: Find the sum of all numbers in a list.</p>
+    <code>
+      numbers = [10, 20, 30, 40, 50]<br>
+      total = 0<br>
+      for num in numbers:<br>
+      &nbsp;&nbsp;total += num<br>
+      print("Sum =", total)
+    </code>
+  </section>
+
+  <a href="Portfolio.html" class="back-btn">⬅ Back to Portfolio</a>
+</body>
+</html>

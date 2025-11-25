@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+
+    <link rel="icon" href="icon.jpg" type="image/jpeg">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="logo.jpeg"><b>HARSH</b>
+            </div>
+
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Dark Mode Toggle -->
+        <div class="theme-toggle">
+            <input type="checkbox" id="darkModeToggle">
+            <label for="darkModeToggle" class="toggle-label">
+                <span class="sun">☀️</span>
+                <span class="moon">🌙</span>
+            </label>
+        </div>
+
+
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section id="home" class="hero">
+        <div id="particles-js" class="particles-wrap"></div>
+        <div class="container hero-container">
+
+            <!-- LEFT IMAGE SECTION -->
+            <div class="hero-img">
+                <img src="photo.jpg" alt="Profile Image">
+            </div>
+
+            <!-- RIGHT TEXT SECTION -->
+            <div class="hero-text">
+                <h2>Hi There,</h2>
+                <h1>I'm <span class="color">Harsh Bhosale</span></h1>
+                <h3>I Am A <span class="typed-text">Web Developer</span></h3>
+
+                <a href="resume.pdf" download class="resume-btn">
+                    <i class="fa-solid fa-download"></i> Download Resume
+                </a>
+
+                <!-- SOCIAL ICONS -->
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/harsh-bhosale-68b8a1396?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/Harsh15-bit"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.instagram.com/ha_r_sh15?igsh=a20zb2oxeW52eGVi"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ABOUT SECTION ================= -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p>
+                I am a dedicated Web Developer and Creative Designer with a strong passion
+                for building digital experiences that are not only functional but also visually
+                appealing. My expertise lies in front-end development, UI/UX design, and
+                creating responsive layouts that work seamlessly across all devices.
+                <br><br>
+                With a blend of creativity and technical skills, I enjoy turning ideas into
+                interactive and modern websites. I focus on clean code, intuitive design,
+                and user-centered principles while constantly learning new tools and
+                technologies to improve my craft.
+                <br><br>
+                My aim is to create meaningful digital solutions that solve problems,
+                deliver value, and provide users with smooth, enjoyable experiences.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section id="skills" class="section">
+    <div class="container">
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skills-grid">
+
+            <!-- HTML Card -->
+            <div class="skill-card fade-up">
+                <h3>HTML</h3>
+                <p>Strong understanding of semantic structure, forms, SEO tags, and modern HTML5 standards.</p>
+            </div>
+
+            <!-- CSS Card -->
+            <div class="skill-card fade-up stagger-1">
+                <h3>CSS</h3>
+                <p>Proficient in Flexbox, Grid, Animations, Responsive UI, and writing clean modular CSS.</p>
+            </div>
+
+            <!-- JS Card -->
+            <div class="skill-card fade-up stagger-2">
+                <h3>JavaScript</h3>
+                <p>Experience with DOM manipulation, events, dynamic UI, JSON, and modern ES6+ features.</p>
+            </div>
+
+            <!-- Python Card -->
+            <div class="skill-card fade-up stagger-3">
+                <h3>Python</h3>
+                <p>Good knowledge of scripting, automation, problem-solving & backend fundamentals.</p>
+            </div>
+
+            <!-- Java Card -->
+            <div class="skill-card fade-up stagger-4">
+                <h3>Java</h3>
+                <p>Core Java concepts: OOP, classes, methods, exceptions & basic application development.</p>
+            </div>
+
+            <!-- SQL Card -->
+            <div class="skill-card fade-up stagger-5">
+                <h3>SQL</h3>
+                <p>Strong in queries, joins, table design & database management fundamentals.</p>
+            </div>
+
+        </div>
+    </div>
+    </section>
+
+
+    <!-- ================= EDUCATION ================= -->
+    <section id="education" class="section">
+    <div class="container">
+        <h2 class="section-title">Education</h2>
+
+        <div class="education-grid">
+
+            <!-- Card 1 -->
+            <div class="edu-card">
+                <h3>Class 10th</h3>
+                <p><strong>School:</strong> Kendriya Vidyalaya No.1 Udhampur, J&K</p>
+                <p><strong>Year: 2021</strong> Completed</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="edu-card">
+                <h3>Class 12th</h3>
+                <p><strong>School:</strong> Kendriya Vidyalaya PL Meerut Cantt</p>
+                <p><strong>Year: 2023</strong> Completed</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="edu-card">
+                <h3>B.Sc (Hons.) Computer Science</h3>
+                <p><strong>University:</strong> Chaudhary Charan Singh University (CCSU)</p>
+                <p><strong>Status:</strong> Currently Pursuing</p>
+            </div>
+
+        </div>
+    </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects" class="section">
+    <div class="container">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="project-slider">
+
+            <div class="slider-wrapper">
+
+                <!-- Project 1 -->
+                <div class="project-slide">
+                    <h3>Portfolio Login</h3>
+                    <p>Secure login page with responsive design and smooth animations.</p>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-slide">
+                    <h3>Portfolio Website</h3>
+                    <p>A modern, responsive portfolio website showcasing projects, skills, and contact info with smooth animations and dark mode support.</p>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-slide">
+                    <h3>Calculator</h3>
+                    <p>A simple and fast calculator app with a clean UI, supporting basic arithmetic operations and smooth user interactions.</p>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-slide">
+                    <h3>Weather App</h3>
+                    <p>Real-time weather application that provides live updates, city search, and dynamic weather icons with a clean, responsive design.</p>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-slide">
+                    <h3>Netflix Clone</h3>
+                    <p>A responsive Netflix clone page featuring a sleek UI, movie browsing, and interactive elements for an engaging user experience.</p>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-slide">
+                    <h3>Parallax Website</h3>
+                    <p>A visually engaging website with smooth parallax scrolling effects, responsive design, and interactive sections to enhance user experience.</p>
+                </div>
+
+            </div>
+
+            <!-- Slider Buttons -->
+            <button class="slider-btn prev">‹</button>
+            <button class="slider-btn next">›</button>
+
+        </div>
+    </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section id="experience" class="section">
+    <div class="container">
+        <h2 class="section-title">Experience & Certifications</h2>
+
+        <!-- Experience Card -->
+        <div class="experience-card">
+            <h3>Fresher • Seeking Opportunities</h3>
+            <p>
+                As a passionate and dedicated fresher, I am seeking an opportunity in a reputed organization 
+                where I can apply my skills, learn from real-world challenges, and grow professionally. 
+                I aim to contribute effectively to the team while continuously enhancing my knowledge 
+                and technical abilities.
+            </p>
+        </div>
+
+        <!-- Certifications Section -->
+        <h3 class="sub-heading">My Certifications</h3>
+
+        <div class="certification-grid">
+
+            <!-- Certificate 1 -->
+            <a href="Certification/Commodity_Derivative.jpg" target="_blank" class="cert-card">
+                <h4>Commodity Derivative Market</h4>
+                <p>Completed certification covering fundamentals of commodity trading, market functions, and analysis.</p>
+            </a>
+
+            <!-- Certificate 2 -->
+            <a href="Certification/Generative_AI.jpg" target="_blank" class="cert-card">
+                <h4>Generative AI</h4>
+                <p>Hands-on learning about prompt engineering, AI models, use-cases, and applied AI systems.</p>
+            </a>
+
+            <!-- Certificate 3 -->
+            <a href="Certification/Industrial_visit.jpg" target="_blank" class="cert-card">
+                <h4>Industrial Visit - Ducat Noida</h4>
+                <p>Visited Ducat Noida for industry exposure and understanding of real-time IT working environments.</p>
+            </a>
+
+            <!-- Certificate 4 -->
+            <a href="Certification/Investors_Certification.jpg" target="_blank" class="cert-card">
+                <h4>Investor Awareness Certification</h4>
+                <p>Certification focused on investment planning, risk management, and financial literacy.</p>
+            </a>
+
+            <!-- Certificate 5 -->
+            <a href="Certification/PowerBi.jpg" target="_blank" class="cert-card">
+                <h4>Power BI</h4>
+                <p>Learned data visualization, dashboard creation, and insights generation using Power BI.</p>
+            </a>
+
+        </div>
+    </div>
+    </section>
+
+
+    <!-- ================= FOOTER CONTACT ================= -->
+<footer id="contact" class="footer">
+    <div class="container footer-container">
+
+```
+    <h2 class="footer-title">Contact Me</h2>
+
+    <p class="footer-text">
+        If you want to reach out for collaboration, projects, or opportunities, 
+        feel free to contact me using the details below.
+    </p>
+
+    <div class="footer-contact">
+        <p><i class="fa-solid fa-envelope"></i> hbhosale135@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i> +91 7088854575</p>
+        <p><i class="fa-solid fa-location-dot"></i> Mumbai, Maharashtra, India</p>
+    </div>
+
+    <div class="footer-social">
+        <a href="https://www.linkedin.com/in/harsh-bhosale-68b8a1396?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/Harsh15-bit"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.instagram.com/ha_r_sh15?igsh=a20zb2oxeW52eGVi"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+
+    <!-- Project Links Section -->
+    <div class="footer-projects">
+        <h3>My All Projects</h3>
+        <div class="projects-links">
+            <a href="portlogin.html" target="_blank">Portfolio login</a>
+            <a href="simpleportfolio.html" target="_blank">Portfolio Website</a>
+            <a href="calculator.html" target="_blank">Calculator</a>
+            <a href="weather.html" target="_blank">Weather App</a>
+            <a href="Netflix/signup.html" target="_blank">Netflix Clone Page</a>
+            <a href="E_commerce/Main.html" target="_blank">E-commerce 1</a>
+            <a href="Ecommerce2/index3.html" target="_blank">E-commerce 2</a>
+            <a href="3D_projects/cards1/index.html" target="_blank">Cards 1</a>
+            <a href="3D_projects/cards2/index1.html" target="_blank">Cards 2</a>
+            <a href="Movie_Rating/Index2.html" target="_blank">Movie App</a>
+            <a href="slider_3d/index5.html" target="_blank">3D Card Rotation</a>
+            <a href="slider_1/index6.html" target="_blank">3D Slider</a>
+            <a href="Modern_website/index7.html" target="_blank">Modern Website</a>
+            <a href="auto_slider/index8.html" target="_blank">Auto Slider</a>
+            <a href="3d_Rotate/index.html" target="_blank">3D Rotate</a>
+            <a href="ink_animation/index9.html" target="_blank">Animation</a>
+            <a href="flex_css/index10.html" target="_blank">Flex CSS</a>
+            <a href="Canvas/index.html" target="_blank">Canvas</a>
+            <a href="Responsive_3d_Cards/index.html" target="_blank">Cards 3</a>
+            <a href="Profile_card/index.html" target="_blank">Profile Card</a>
+            <a href="Credit_card/index.html" target="_blank">Credit Card</a>
+            <a href="GSAP_cards/index.html" target="_blank">GSAP Carousel Cards</a>
+            <a href="Flight_Booking_app/index.html" target="_blank">Flight Booking App</a>
+            <a href="Hospital Website/index.html" target="_blank">Hospital Website</a>
+            <a href="Music_Dashboard/index.html" target="_blank">Music Dashboard</a>
+            <a href="Parallax_Website/index.html" target="_blank">Parallax Website</a>
+            <a href="Headphone_landing_page/index.html" target="_blank">Responsive Headphone Page</a>
+            <a href="Hotel_Website/index.html" target="_blank">Hotel Website</a>
+            <a href="Electronics/index.html" target="_blank">Electronics Hub</a>
+            <a href="Fly_luxury/index.html" target="_blank">Fly Luxury</a>
+            <a href="Premium_car/index.html" target="_blank">Premium Car Sales</a>
+            <a href="Forge_Fit/index.html" target="_blank">ForgeFit Gym</a>
+            <a href="Travel_Website/index.html" target="_blank">Travel Website</a>
+            <a href="GSAP_2/index.html" target="_blank">GSAP 2</a>
+            <a href="Simple_website/index.html" target="_blank">Simple Website</a>
+            <a href="image_slider/index.html" target="_blank">Image Slider</a>
+            <a href="image_slider2/index.html" target="_blank">Image Slider 2</a>
+            <a href="3D_cards/index.html" target="_blank">Cards 4</a>
+            <a href="Mera_Bharat/index.html" target="_blank">Mera Bharat</a>
+            <a href="Sun_down/index.html" target="_blank">Sundown Studio</a>
+            <a href="Cyber_Fiction/index.html" target="_blank">Cyber Fiction</a>
+            <a href="Estate_Website/index.html" target="_blank">Estate Website</a>
+            <a href="Fanta_website/index.html" target="_blank">Fanta Website</a>
+            <a href="Gaming_Website/index.html" target="_blank">Gaming Website</a>
+            <a href="soda_website/index.html" target="_blank">Soda Website</a>
+            <a href="Bee_Animation/index.html" target="_blank">Bee Animation</a>
+            <a href="Fia/index.html" target="_blank">Fia</a>
+        </div>
+    </div>
+
+    <p class="footer-copy">© 2025 Harsh Bhosale — All Rights Reserved</p>
+
+</div>
+```
+
+</footer>
+
+
+
+    <!-- JS File -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
